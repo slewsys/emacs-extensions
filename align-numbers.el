@@ -2,7 +2,7 @@
 ;;
 ;; -*- coding: utf-8 -*-
 ;;
-;; Copyright (C) 2016 Andrew L. Moore
+;; Copyright © 2016 Andrew L. Moore
 
 ;; Author: Andrew L. Moore <alm@gnu.org>
 ;; Keywords: convenience, table, formatting

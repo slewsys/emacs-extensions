@@ -2,7 +2,7 @@
 ;;
 ;; -*- coding: utf-8 -*-
 ;;
-;; Copyright (C) 2017 Andrew L. Moore
+;; Copyright © 2017 Andrew L. Moore
 
 ;; Author: Andrew L. Moore <alm@gnu.org>
 ;; Keywords: editing, languages, lisp
