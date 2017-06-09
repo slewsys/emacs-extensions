@@ -1,5 +1,6 @@
 # Emacs extensions
-Here is a small, independent collection of Emacs minor modes.
+This is a small, independent collection of Emacs minor modes. Most of
+these require a recent version of GNU emacs (i.e., version 25+).
 
 ## Quoting
 __quote-per-event-mode__ is a minor mode that provides a single
@@ -33,13 +34,18 @@ __align-numbers__ is an Emacs function to align a table of numbers on
 their radix or decimal point. It's built around the native Emacs
 function __align-regexp__.
 
-## Installation
+## Insert magic numbers
+__script-set-magic-mode__ is a minor mode that sets a script's magic
+number (or "shebang"), if any, and makes it executable based on the
+current major mode.
+
+# Installation
 Note that to use these extensions, as is, requires at least Emacs 25
 (the current version as of this writing). To use them with earlier
 versions of Emacs, in each source file comment out the "*-local-mode"
 minor mode declaration.
 
-### To install quote-per-event-mode
+## To install quote-per-event-mode
 Place the file _quote-per-event.el_ in Emacs load path, and add to
 Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
@@ -107,7 +113,7 @@ To insert a TeX display environment `\[ \]` is trickier.  I use the
 key sequence `CTRL + \`, then select one character forward `CTRL +
 SHIFT + F` and finally `META + [`.
 
-### To install unicode-keymap-extensions-mode
+## To install unicode-keymap-extensions-mode
 Place the file _unicode-keymap-extensions.el_ in Emacs load path, and
 add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
@@ -142,7 +148,7 @@ except __elisp-mode__ - use:
 Now, typing `CTRL + x 8 g a` inserts the greek character α (alpha),
 `CTRL + x 8 r f` inserts the Russian character ф (ef), etc.
 
-### To install mark-navigation-mode
+## To install mark-navigation-mode
 Place the file _mark-navigation.el_ in Emacs load path, and
 add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
@@ -178,7 +184,7 @@ The default mappings are `META + P` and `META + N` for previous and
 next, respectively. The mode is disabled in the mini-buffer.
 
 
-### To install align-numbers
+## To install align-numbers
 Place the file _align-numbers.el_ in Emacs load path, and
 add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
@@ -188,3 +194,23 @@ add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
 Since this is just an Emacs function, invoke it on a region
 with `META-x align-numbers`.
+
+## To install script-set-magic-mode
+Place the file _script-set-magic.el_ in Emacs load path, and
+add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
+
+```lisp
+(require 'script-set-magic)
+(script-set-magic-mode)
+```
+
+By default, this inserts magic numbers of the form
+`#!/path/to/interpreter`.
+
+To get magic numbers of the form `#!/usr/bin/env interpreter`, add
+to Emacs init file:
+
+```lisp
+(setq executable-interpreter-path-absolute nil)
+(setq executable-prefix "#!/usr/bin/env ")
+```
