@@ -211,6 +211,9 @@ To get magic numbers of the form `#!/usr/bin/env interpreter`, add
 to Emacs init file:
 
 ```lisp
-(setq executable-interpreter-path-absolute nil)
 (setq executable-prefix "#!/usr/bin/env ")
+(setq executable-interpreter-path-absolute nil)
 ```
+
+The variable `executable-interpreter-path-absolute` is defined in a
+patch to the Emacs distribution.  See *contrib/lisp_progmodes_executable.el.diff*.

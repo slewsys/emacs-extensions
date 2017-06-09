@@ -1,0 +1,63 @@
+diff --git a/lisp/progmodes/executable.el b/lisp/progmodes/executable.el
+index da148bd39a..9464370a91 100644
+--- a/lisp/progmodes/executable.el
++++ b/lisp/progmodes/executable.el
+@@ -90,6 +90,12 @@ executable-prefix
+   :type 'string
+   :group 'executable)
+ 
++(defcustom executable-interpreter-path-absolute t
++  "If non-nil, `executable-set-magic' uses the interpreter's
++absolute path. Otherwise, it's basename is used."
++  :version "26.0"
++  :type 'boolean
++  :group 'executable)
+ 
+ (defcustom executable-chmod 73
+   "After saving, if the file is not executable, set this mode.
+@@ -220,6 +226,9 @@ executable-set-magic
+                          (and argument (string< "" argument) " ")
+                          argument))
+ 
++  (if (not executable-interpreter-path-absolute)
++      (setq argument (file-name-nondirectory argument)))
++
+   (or buffer-read-only
+       (if buffer-file-name
+           (string-match executable-magicless-file-regexp
+@@ -229,27 +238,26 @@ executable-set-magic
+       (save-excursion
+         (goto-char (point-min))
+         (add-hook 'after-save-hook 'executable-chmod nil t)
++        (let ((new-magic (concat (substring executable-prefix 2) argument)))
+           (if (looking-at "#![ \t]*\\(.*\\)$")
+               (and (goto-char (match-beginning 1))
+                    ;; If the line ends in a space,
+                    ;; don't offer to change it.
+                    (not (= (char-after (1- (match-end 1))) ?\s))
+-		 (not (string= argument
++                   (not (string= new-magic
+                                  (buffer-substring (point) (match-end 1))))
+                    (if (or (not executable-query) no-query-flag
+                            (save-window-excursion
+                              ;; Make buffer visible before question.
+                              (switch-to-buffer (current-buffer))
+                              (y-or-n-p (format-message
+-				      "Replace magic number by `%s%s'? "
+-				      executable-prefix argument))))
++                                        "Replace magic number by `#!%s'? "
++                                        new-magic))))
+                        (progn
+-		       (replace-match argument t t nil 1)
+-		       (message "Magic number changed to `%s'"
+-				(concat executable-prefix argument)))))
+-	  (insert executable-prefix argument ?\n)
+-	  (message "Magic number changed to `%s'"
+-		   (concat executable-prefix argument)))))
++                         (replace-match new-magic t t nil 1)
++                         (message "Magic number changed to `#!%s'" new-magic))))
++            (insert "#!" new-magic ?\n)
++            (message "Magic number changed to `#!%s'" new-magic)))))
+   interpreter)
+ 
+ 
