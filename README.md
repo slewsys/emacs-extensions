@@ -35,9 +35,9 @@ their radix or decimal point. It's built around the native Emacs
 function __align-regexp__.
 
 ## Insert magic numbers
-__script-set-magic-mode__ is a minor mode that sets a script's magic
-number (or "shebang"), if any, and makes it executable based on the
-current major mode.
+__executable-set-magic-mode__ is a minor mode that makes a script
+executable and sets its magic number (or *shebang*), if any, based
+on the current major mode.
 
 # Installation
 Note that to use these extensions, as is, requires at least Emacs 25
@@ -195,13 +195,13 @@ add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 Since this is just an Emacs function, invoke it on a region
 with `META-x align-numbers`.
 
-## To install script-set-magic-mode
-Place the file _script-set-magic.el_ in Emacs load path, and
+## To install executable-set-magic-mode
+Place the file _executable-set-magic.el_ in Emacs load path, and
 add to Emacs init file *~/.emacs* or *~/.emacs.d/init.el*:
 
 ```lisp
-(require 'script-set-magic)
-(script-set-magic-mode)
+(require 'executable-set-magic)
+(executable-set-magic-mode)
 ```
 
 By default, this inserts magic numbers of the form
@@ -211,9 +211,8 @@ To get magic numbers of the form `#!/usr/bin/env interpreter`, add
 to Emacs init file:
 
 ```lisp
-(setq executable-prefix "#!/usr/bin/env ")
-(setq executable-interpreter-path-absolute nil)
+(setq executable-prefix-env t)
 ```
 
-The variable `executable-interpreter-path-absolute` is defined in a
-patch to the Emacs distribution.  See *contrib/lisp_progmodes_executable.el.diff*.
+The variable `executable-prefix-env` is defined in a patch to the
+Emacs distribution. See *contrib/lisp_progmodes_executable.el.diff*.
