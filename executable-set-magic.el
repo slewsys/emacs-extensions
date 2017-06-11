@@ -44,7 +44,7 @@
     (ruby-mode       ("ruby"   . nil))
     (sed-mode        ("sed"    . "-f"))
     (shell-mode      ("bash"   . nil))
-    (tcl-mode        ("tcl"    . nil)))
+    (tcl-mode        ("tclsh"    . nil)))
   "Alist of major modes and associated script interpreters used
 by `executable-set-magic' to produce a magic number for a script."
   :tag "Mode-interpreter alist."
