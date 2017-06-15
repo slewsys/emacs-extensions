@@ -60,6 +60,7 @@
     ( ,(kbd "M-_")    ,(kbd "_") ,(kbd "_"))
     ( ,(kbd "M-\"")   ,(kbd "«") ,(kbd "»"))
     ( ,(kbd "C-M-?")  ,(kbd "?") ,(kbd "?"))
+    ( ,(kbd "C-M-@")  ,(kbd "@") ,(kbd "@"))
     ( ,(kbd "C-M-`")  ,(kbd "`") ,(kbd "`")) ;; command substitution backquotes
     ( ,(kbd "C-M-'")  ,(kbd "‘") ,(kbd "’")) ;; typographical single quotes
     ( ,(kbd "C-M-\"") ,(kbd "“") ,(kbd "”")) ;; typographical double quotes
@@ -94,6 +95,7 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
     ,(kbd "C-c M-\"")   ,(kbd "M-\"")
     ,(kbd "C-c M-*")    ,(kbd "M-*")
     ,(kbd "C-c C-M-?")  ,(kbd "C-M-?")
+    ,(kbd "C-c C-M-@")  ,(kbd "C-M-@")
     ,(kbd "C-c C-M-`")  ,(kbd "C-M-`")
     ,(kbd "C-c C-M-'")  ,(kbd "C-M-'")
     ,(kbd "C-c C-M-\"") ,(kbd "C-M-\"")
