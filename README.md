@@ -39,7 +39,7 @@ __executable-set-magic-mode__ is a minor mode that makes a script
 executable and sets its magic number (or *shebang*), if any, based
 on the current major mode.
 
-# Installation
+# Installing Emacs extensions
 Note that to use these extensions, as is, requires at least Emacs 25
 (the current version as of this writing). To use them with earlier
 versions of Emacs, in each source file comment out the "*-local-mode"
@@ -79,30 +79,31 @@ except __elisp-mode__ - use:
 The default key bindings are as follows:
 
 
-Binding  | Open-char | Close-char
----------|-----------|-----------
-CTRL + ' | '  | '
-CTRL + ` | ` | '
-CTRL + " | " | "
-CTRL + ＼ | ＼ | ＼
-CTRL + : | : | :
-CTRL + ( | ( | )
-CTRL + < | < | >
-CTRL + { | { | }
-CTRL + $ | $ | $
-CTRL + % | % | %
-CTRL + * | * | *
-CTRL + ｜ | ｜ | ｜
-META + [ | [ | ]
-META + _ | _ | _
-CTRL + . | . | .
-CTRL + , | , | ,
-META + " | « | »
-META + * | / | /
-CTRL + META + ? | ? | ?
-CTRL + META + ` | ` | `
-CTRL + META + ' | ‘ | ’
-CTRL + META + " | “ | ”
+Binding          | Open-char | Close-char
+-----------------|-----------|-----------
+CTRL + '         | '         | '
+CTRL + \`        | \`        | '
+CTRL + "         | "         | "
+CTRL + \\        | \\        | \\
+CTRL + :         | :         | :
+CTRL + (         | (         | )
+CTRL + <         | <         | >
+CTRL + {         | {         | }
+CTRL + $         | $         | $
+CTRL + %         | %         | %
+CTRL + *         | *         | *
+CTRL + \|        | \|        | \|
+META + [         | [         | ]
+META + _         | _         | _
+CTRL + .         | .         | .
+CTRL + ,         | ,         | ,
+META + "         | «         | »
+META + *         | /         | /
+CTRL + META + @  | @         | @
+CTRL + META + ?  | ?         | ?
+CTRL + META + \` | \`        | \`
+CTRL + META + '  | ‘         | ’
+CTRL + META + "  | “         | ”
 
 NB: the last two quotes are typographic.
 
@@ -216,3 +217,11 @@ to Emacs init file:
 
 The variable `executable-prefix-env` is defined in a patch to the
 Emacs distribution. See *contrib/lisp_progmodes_executable.el.diff*.
+
+Files in project directories are excluded from processing by default.
+To apply `executable-set-magic-mode` to project files as well, add to
+Emacs init file:
+
+``` lisp
+(setq executable-exclude-project-files nil)
+```

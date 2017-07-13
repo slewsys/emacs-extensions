@@ -20,6 +20,10 @@
 ;; If variable `executable-prefix-env' is non-nil, then the magic
 ;; number inserted by function `executable-set-magic' takes the form
 ;; "#!/usr/bin/env interpreter", otherwise "#!/path/to/interpreter".
+;;
+;; If variable `executable-exclude-project-files' is non-nil, then
+;; files contained in project directories - as defined by the function
+;; `executable-project-directory' - are not processed.
 
 ;;; Installation:
 ;;
@@ -29,6 +33,8 @@
 ;;
 ;;   (executable-set-magic-mode)
 ;;
+(eval-when-compile
+  (require 'cl))
 
 (defcustom executable-set-magic-alist
   '((awk-mode        ("awk"    . "-f"))
@@ -52,13 +58,67 @@ by `executable-set-magic' to produce a magic number for a script."
   :group 'executable
   :type '(repeat (list symbol (cons string sexp))))
 
+(defcustom executable-exclude-project-files t
+  "If non-nil, `executable-set-magic-hook' is not applied to files
+contained in project directories as identified by the function
+`executable-project-directory'."
+
+  :tag "Do not apply `executable-set-magic' to project files."
+  :version "26.1"
+  :group 'executable
+  :type '(boolean))
+
+(defcustom executable-project-root-files
+  '(".git" ".svn" ".hgtags" ".bzr" "CVS" "_darcs" "GRTAGS")
+  "List of files used by `executable-project-root-file' to
+identify root of project hierarchy."
+  :tag "Project root files."
+  :version "26.1"
+  :group 'executable
+  :type '(repeat string))
+
+(defvar executable-root-path nil)
+
+(defun executable-project-root-path (project-directory project-file)
+  "Searches directory hierarchy of PROJECT-DIRECTORY for
+top-most path containing PROJECT-FILENAME. Returns pathname If
+found, otherwise nil."
+  (block top-level-block
+    (let* ((top-level-path "")
+           (separator "/")
+           (project-path (or project-directory
+                             default-directory))
+           (path-components (cdr (split-string project-path separator))))
+      (dolist (directory path-components executable-root-path)
+        (setq top-level-path (concat top-level-path separator directory))
+        (setq executable-root-path
+              (concat top-level-path separator project-file))
+        (if (file-exists-p executable-root-path)
+            (return-from top-level-block executable-root-path)))
+      (setq executable-root-path nil))))
+
+(defun executable-project-directory (&optional project-directory)
+  "Searches path hierarchy of PROJECT-DIRECTORY, or if not
+given, DEFAULT-DIRECTORY, and returns top-most path containing one of
+`executable-project-root-files', otherwise nil."
+  (block root-block
+    (let ((canonical-dir (expand-file-name (or project-directory
+                                               default-directory))))
+      (dolist (root-file executable-project-root-files executable-root-path)
+        (let ((executable-root-path (executable-project-root-path
+                                     canonical-dir root-file)))
+          (if executable-root-path
+              (return-from root-block
+                (file-name-directory executable-root-path))))))))
 
 (defun executable-set-magic-hook ()
 "Calls `executable-set-magic' with arguments returned by look up
 in `executable-set-magic-alist' of interpreter associated with
 current major mode."
   (let ((interpreter (car (alist-get major-mode executable-set-magic-alist))))
-    (if interpreter
+    (if (and interpreter
+             (not (and executable-exclude-project-files
+                       (executable-project-directory))))
         (executable-set-magic (car interpreter) (cdr interpreter)))))
 
 ;;;###autoload
@@ -79,7 +139,11 @@ interpreters is defined in `executable-set-magic-alist'.
 
 If variable `executable-prefix-env' is non-nil, then the magic
 number inserted by function `executable-set-magic' takes the form
-\"#!/usr/bin/env interpreter\", otherwise \"#!/path/to/interpreter\"."
+\"#!/usr/bin/env interpreter\", otherwise \"#!/path/to/interpreter\".
+
+If variable `executable-exclude-project-files' is non-nil, then
+files contained in project directories - as defined by the function
+`executable-project-directory' - are not processed."
 
   ;;; No initial value.
   :init-value nil
