@@ -79,23 +79,23 @@ to identify root of project hierarchy."
 
 (defvar executable-root-path nil)
 
-(defun executable-project-root-path (project-directory )
-  "Searches directory hierarchy of PROJECT-DIRECTORY for
-top-most path containing PROJECT-FILENAME. Returns pathname If
-found, otherwise nil."
-  (block top-level-block
+(defun executable-project-root-path (project-directory)
+  "Searches PROJECT-DIRECTORY for one of the files in list
+`executable-project-root-files'. If found, returns the pathname,
+otherwise nil."
+  (block project-block
       (dolist (root-file executable-project-root-files)
         (setq executable-root-path
               (concat project-directory root-file))
         (if (file-exists-p executable-root-path)
-            (return-from top-level-block
+            (return-from project-block
               (file-name-directory executable-root-path))))
       nil))
 
 (defun executable-project-directory (&optional project-directory)
-  "Searches path hierarchy of PROJECT-DIRECTORY, or if not
-given, DEFAULT-DIRECTORY, and returns top-most path containing one of
-`executable-project-root-files', otherwise nil."
+  "Searches hierarchy of PROJECT-DIRECTORY for top-most project
+root, as defined by function `executable-project-root-path'. If
+found, returns the pathname, other nil."
   (block root-block
     (let* ((canonical-dir
             (expand-file-name (file-name-directory (or project-directory
