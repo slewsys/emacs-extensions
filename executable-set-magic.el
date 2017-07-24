@@ -70,8 +70,8 @@ contained in project directories as identified by the function
 
 (defcustom executable-project-root-files
   '(".git" ".svn" ".hgtags" ".bzr" "CVS" "_darcs" "GRTAGS")
-  "List of files used by `executable-project-root-file' to
-identify root of project hierarchy."
+  "List of files used by function `executable-project-root-path'
+to identify root of project hierarchy."
   :tag "Project root files."
   :version "26.1"
   :group 'executable
@@ -79,37 +79,37 @@ identify root of project hierarchy."
 
 (defvar executable-root-path nil)
 
-(defun executable-project-root-path (project-directory project-file)
+(defun executable-project-root-path (project-directory )
   "Searches directory hierarchy of PROJECT-DIRECTORY for
 top-most path containing PROJECT-FILENAME. Returns pathname If
 found, otherwise nil."
   (block top-level-block
-    (let* ((top-level-path "")
-           (separator "/")
-           (project-path (or project-directory
-                             default-directory))
-           (path-components (cdr (split-string project-path separator))))
-      (dolist (directory path-components executable-root-path)
-        (setq top-level-path (concat top-level-path separator directory))
+      (dolist (root-file executable-project-root-files)
         (setq executable-root-path
-              (concat top-level-path separator project-file))
+              (concat project-directory root-file))
         (if (file-exists-p executable-root-path)
-            (return-from top-level-block executable-root-path)))
-      (setq executable-root-path nil))))
+            (return-from top-level-block
+              (file-name-directory executable-root-path))))
+      nil))
 
 (defun executable-project-directory (&optional project-directory)
   "Searches path hierarchy of PROJECT-DIRECTORY, or if not
 given, DEFAULT-DIRECTORY, and returns top-most path containing one of
 `executable-project-root-files', otherwise nil."
   (block root-block
-    (let ((canonical-dir (expand-file-name (or project-directory
-                                               default-directory))))
-      (dolist (root-file executable-project-root-files executable-root-path)
-        (let ((executable-root-path (executable-project-root-path
-                                     canonical-dir root-file)))
-          (if executable-root-path
-              (return-from root-block
-                (file-name-directory executable-root-path))))))))
+    (let* ((canonical-dir
+            (expand-file-name (file-name-directory (or project-directory
+                                                       default-directory))))
+          (top-level-path "")
+          (separator "/")
+          (path-components (split-string canonical-dir separator)))
+      (dolist (directory path-components executable-root-path)
+        (setq top-level-path (concat top-level-path directory separator))
+        (setq executable-root-path
+                (executable-project-root-path top-level-path))
+        (if executable-root-path
+            (return-from root-block
+              (file-name-directory executable-root-path)))))))
 
 (defun executable-set-magic-hook ()
 "Calls `executable-set-magic' with arguments returned by look up
