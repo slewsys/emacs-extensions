@@ -108,8 +108,7 @@ found, returns the pathname, other nil."
         (setq executable-root-path
                 (executable-project-root-path top-level-path))
         (if executable-root-path
-            (return-from root-block
-              (file-name-directory executable-root-path)))))))
+            (return-from root-block executable-root-path))))))
 
 (defun executable-set-magic-hook ()
 "Calls `executable-set-magic' with arguments returned by look up
