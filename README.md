@@ -215,8 +215,10 @@ to Emacs init file:
 (setq executable-prefix-env t)
 ```
 
-The variable `executable-prefix-env` is defined in a patch to the
-Emacs distribution. See *contrib/lisp_progmodes_executable.el.diff*.
+The variable `executable-prefix-env` is defined in
+Emacs version 26.1. For prior versions, apply to the Emacs source
+distribution  the patch in the contrib directory:
+*contrib/lisp_progmodes_executable.el.diff*.
 
 Files in project directories are excluded from processing by default.
 To apply `executable-set-magic-mode` to project files as well, add to
