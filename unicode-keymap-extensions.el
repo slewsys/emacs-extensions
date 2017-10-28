@@ -34,14 +34,14 @@
 ;;             (lambda ()
 ;;               (unicode-keymap-extensions-local-mode -1)))
 ;;
-
+;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Unicode Latin-1 Supplement and Latin Extended-A keymap.
 ;;
 (defgroup unicode-keymap-extensions ()
   "Extended Unicode input bindings."
-  :package-version '(unicode-keymap-extensions . "1.0")
+  :package-version '(unicode-keymap-extensions . "1.1")
   :group 'editing)
 
 (defcustom unicode-keymap-extensions-bindings
@@ -61,6 +61,8 @@
     (,(kbd "C-x 8 v S") . ,(kbd "Š")) ;;; CAPITAL S WITH CARON
     (,(kbd "C-x 8 v z") . ,(kbd "ž")) ;;; SMALL Z WITH CARON
     (,(kbd "C-x 8 v Z") . ,(kbd "Ž")) ;;; CAPITAL Z WITH CARON
+    (,(kbd "C-x 8 . z") . ,(kbd "ż")) ;;; SMALL Z WITH DOT ABOVE
+    (,(kbd "C-x 8 . Z") . ,(kbd "Ż")) ;;; CAPITAL Z WITH DOT ABOVE
     (,(kbd "C-x 8 , e") . ,(kbd "ę")) ;;; SMALL E WITH OGONEK
     (,(kbd "C-x 8 , E") . ,(kbd "Ę")) ;;; CAPITAL E WITH OGONEK
     (,(kbd "C-x 8 e a") . ,(kbd "æ")) ;;; SMALL LATIN AE
