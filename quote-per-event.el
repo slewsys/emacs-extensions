@@ -79,7 +79,6 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
     ,(kbd "C-c '")      ,(kbd "C-'")
     ,(kbd "C-c `")      ,(kbd "C-`")
     ,(kbd "C-c \"")     ,(kbd "C-\"")
-    ,(kbd "C-c \\")     ,(kbd "C-\\")
     ,(kbd "C-c :")      ,(kbd "C-:")
     ,(kbd "C-c (")      ,(kbd "C-(")
     ,(kbd "C-c <")      ,(kbd "C-<")
@@ -99,6 +98,7 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
     ,(kbd "C-c C-M-`")  ,(kbd "C-M-`")
     ,(kbd "C-c C-M-'")  ,(kbd "C-M-'")
     ,(kbd "C-c C-M-\"") ,(kbd "C-M-\"")
+    ,(kbd "C-c C-M-\\") ,(kbd "C-M-\\")
     )
   "List key-sequences bound to function `quote-per-event'.
 The last element of each key-sequence, with or without modifiers,

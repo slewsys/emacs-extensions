@@ -84,7 +84,6 @@ Binding          | Open-char | Close-char
 CTRL + '         | '         | '
 CTRL + \`        | \`        | '
 CTRL + "         | "         | "
-CTRL + \\        | \\        | \\
 CTRL + :         | :         | :
 CTRL + (         | (         | )
 CTRL + <         | <         | >
@@ -104,15 +103,16 @@ CTRL + META + ?  | ?         | ?
 CTRL + META + \` | \`        | \`
 CTRL + META + '  | ‘         | ’
 CTRL + META + "  | “         | ”
+CTRL + META + \\ | \\        | \\
 
 NB: the last two quotes are typographic.
 
-To insert, for instance, a C-style comment `/* */`,
-press `META + *` followed by `CTRL + *`.
+To insert, for instance, a C-style comment `/* */`, press `META + *`
+followed by `CTRL + *`.
 
-To insert a TeX display environment `\[ \]` is trickier.  I use the
-key sequence `CTRL + \`, then select one character forward `CTRL +
-SHIFT + F` and finally `META + [`.
+Inserting a TeX display environment `\[ \]` is similar. I use the key
+sequence `CTRL + META + \`, select one character forward `CTRL +
+SHIFT + F` and then `META + [`.
 
 ## To install unicode-keymap-extensions-mode
 Place the file _unicode-keymap-extensions.el_ in Emacs load path, and
