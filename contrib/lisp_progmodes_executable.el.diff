@@ -1,88 +1,67 @@
-diff --git a/etc/NEWS b/etc/NEWS
-index 7972511f7a..a81949efa6 100644
---- a/etc/NEWS
-+++ b/etc/NEWS
-@@ -94,6 +94,12 @@ required capabilities are found in terminfo.  See the FAQ node
- 
- * Changes in Emacs 26.1
-
-+** The new variable 'executable-prefix-env' affects the format of
-+the magic number inserted by 'executable-set-magic'. If non-nil,
-+the magic number takes the form "#!/usr/bin/env interpreter",
-+otherwise "#!/path/to/interpreter", which is the default.
-+
-++++
- ** The variable 'emacs-version' no longer includes the build number.
- This is now stored separately in a new variable, 'emacs-build-number'.
-
 diff --git a/lisp/progmodes/executable.el b/lisp/progmodes/executable.el
-index da148bd39a..5decc92e27 100644
+index 00c898d261..6bad79f6e6 100644
 --- a/lisp/progmodes/executable.el
 +++ b/lisp/progmodes/executable.el
-@@ -83,13 +83,20 @@ executable-magicless-file-regexp
-   :type 'regexp
-   :group 'executable)
-
--
- (defcustom executable-prefix "#!"
--  "Interpreter magic number prefix inserted when there was no magic number."
--  :version "24.3"                       ; "#! " -> "#!"
-+  "Interpreter magic number prefix inserted when there was no magic number.
-+Use of `executable-prefix' is deprecated in favor of `executable-prefix-env'."
-+  :version "26.1"                       ; deprecated
-   :type 'string
-   :group 'executable)
-
-+(defcustom executable-prefix-env nil
-+  "If non-nil, the magic number inserted by function `executable-set-magic'
-+takes the form \"#!/usr/bin/env interpreter\", otherwise
-+\"#!/path/to/interpreter\"."
-+  :version "26.1"
-+  :type 'boolean
-+  :group 'executable)
-
- (defcustom executable-chmod 73
-   "After saving, if the file is not executable, set this mode.
-@@ -199,7 +206,7 @@ executable-interpret
- (defun executable-set-magic (interpreter &optional argument
-                                          no-query-flag insert-flag)
-   "Set this buffer's interpreter to INTERPRETER with optional ARGUMENT.
--The variables `executable-magicless-file-regexp', `executable-prefix',
-+The variables `executable-magicless-file-regexp', `executable-prefix-env',
- `executable-insert', `executable-query' and `executable-chmod' control
- when and how magic numbers are inserted or replaced and scripts made
- executable."
-@@ -220,6 +227,14 @@ executable-set-magic
-                          (and argument (string< "" argument) " ")
-                          argument))
-
-+  ;; For backward compatibilty, allow `executable-prefix-env' to be
-+  ;; overriden by custom `executable-prefix'.
-+  (if (string-match "#!\\([ \t]*/usr/bin/env[ \t]*\\)?$" executable-prefix)
-+      (if executable-prefix-env
-+          (setq argument (concat "/usr/bin/env "
-+                                 (file-name-nondirectory argument))))
-+    (setq argument (concat (substring executable-prefix 2) argument)))
-+
+@@ -238,35 +238,36 @@ executable-set-magic
+ 
    (or buffer-read-only
        (if buffer-file-name
-           (string-match executable-magicless-file-regexp
-@@ -241,15 +256,13 @@ executable-set-magic
-                            ;; Make buffer visible before question.
-                            (switch-to-buffer (current-buffer))
-                            (y-or-n-p (format-message
--          "Replace magic number by `%s%s'? "
--          executable-prefix argument))))
-+                                      "Replace magic number by `#!%s'? "
-+                                      argument))))
-                      (progn
-                        (replace-match argument t t nil 1)
--         (message "Magic number changed to `%s'"
--				(concat executable-prefix argument)))))
--   (insert executable-prefix argument ?\n)
--   (message "Magic number changed to `%s'"
--     (concat executable-prefix argument)))))
-+                       (message "Magic number changed to `#!%s'" argument))))
+-	  (string-match executable-magicless-file-regexp
+-			buffer-file-name))
++         (string-match executable-magicless-file-regexp
++                       buffer-file-name))
+       (not (or insert-flag executable-insert))
+       (> (point-min) 1)
+       (save-excursion
+-	(goto-char (point-min))
+-	(add-hook 'after-save-hook 'executable-chmod nil t)
+-	(if (looking-at "#![ \t]*\\(.*\\)$")
+-	    (and (goto-char (match-beginning 1))
+-		 ;; If the line ends in a space,
+-		 ;; don't offer to change it.
+-		 (not (= (char-after (1- (match-end 1))) ?\s))
+-		 (not (string= argument
+-			       (buffer-substring (point) (match-end 1))))
+-		 (if (or (not executable-query) no-query-flag
+-			 (save-window-excursion
+-			   ;; Make buffer visible before question.
+-			   (switch-to-buffer (current-buffer))
+-			   (y-or-n-p (format-message
+-				      "Replace magic number by `#!%s'? "
+-				      argument))))
+-		     (progn
+-		       (replace-match argument t t nil 1)
+-		       (message "Magic number changed to `#!%s'" argument))))
+-	  (insert "#!" argument ?\n)
+-	  (message "Magic number changed to `#!%s'" argument))))
+-    interpreter)
+-
+-
++        (goto-char (point-min))
++        (add-hook 'after-save-hook 'executable-chmod nil t)
++        (if (looking-at "#![ \t]*\\(.*\\)$")
++            (let* ((beg (match-beginning 1))
++                   (end (match-end 1))
++                   (matched (buffer-substring beg end)))
++              (and (goto-char beg)
++                   ;; If the line ends in a space,
++                   ;; don't offer to change it.
++                   (not (= (char-after (1- end)) ?\s))
++                   (not (string= argument matched))
++                   (if (or (not executable-query) no-query-flag
++                           (save-window-excursion
++                             ;; Make buffer visible before question.
++                             (switch-to-buffer (current-buffer))
++                             (y-or-n-p (format-message
++                                        "Replace magic number by `#!%s'? "
++                                        argument))))
++                       (progn
++                         (delete-region beg end)
++                         (insert argument)
++                         (message "Magic number changed to `#!%s'" argument)))))
 +          (insert "#!" argument ?\n)
 +          (message "Magic number changed to `#!%s'" argument))))
-   interpreter)
++  interpreter)
+ 
+ (defun executable-self-display ()
+   "Turn a text file into a self-displaying Un*x command.

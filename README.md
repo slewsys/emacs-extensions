@@ -91,7 +91,7 @@ CTRL + {         | {         | }
 CTRL + $         | $         | $
 CTRL + %         | %         | %
 CTRL + *         | *         | *
-CTRL + \|        | \|        | \|
+CTRL + &#124;    | &#124;    | &#124;
 META + [         | [         | ]
 META + _         | _         | _
 CTRL + .         | .         | .
@@ -101,11 +101,11 @@ META + *         | /         | /
 CTRL + META + @  | @         | @
 CTRL + META + ?  | ?         | ?
 CTRL + META + \` | \`        | \`
+CTRL + META + \\ | \\        | \\
 CTRL + META + '  | ‘         | ’
 CTRL + META + "  | “         | ”
-CTRL + META + \\ | \\        | \\
 
-NB: the last two quotes are typographic.
+NB: the last two are typographic (i.e., “curved”) quotes.
 
 To insert, for instance, a C-style comment `/* */`, press `META + *`
 followed by `CTRL + *`.
@@ -215,10 +215,10 @@ to Emacs init file:
 (setq executable-prefix-env t)
 ```
 
-The variable `executable-prefix-env` is defined in
-Emacs version 26.1. For prior versions, apply to the Emacs source
-distribution  the patch in the contrib directory:
-*contrib/lisp_progmodes_executable.el.diff*.
+The variable `executable-prefix-env` is defined since Emacs version
+26.1. To allow `executable-set-magic-mode` to update an existing
+magic number upon opening a file, apply the patch in the contrib
+directory *contrib/lisp_progmodes_executable.el.diff*.
 
 Files in project directories are excluded from processing by default.
 To apply `executable-set-magic-mode` to project files as well, add to
