@@ -47,23 +47,35 @@
 (defcustom quote-per-event-quotes
   `(
    ;;; Optional-Index  Open-Char  Close-Char
-    ( ,(kbd ".")      ,(kbd ".") ,(kbd "."))
-    ( ,(kbd ",")      ,(kbd ",") ,(kbd ","))
-    ( ,(kbd ":")      ,(kbd ":") ,(kbd ":"))
-    ( ,(kbd "$")      ,(kbd "$") ,(kbd "$"))
-    ( ,(kbd "%")      ,(kbd "%") ,(kbd "%"))
-    ( ,(kbd "*")      ,(kbd "*") ,(kbd "*"))
-    ( ,(kbd "|")      ,(kbd "|") ,(kbd "|"))
-    ( ,(kbd "M-*")    ,(kbd "/") ,(kbd "/"))
-    ( ,(kbd "\\")     ,(kbd "\\") ,(kbd "\\"))
-    ( ,(kbd "M-[")    ,(kbd "[") ,(kbd "]"))
-    ( ,(kbd "M-_")    ,(kbd "_") ,(kbd "_"))
-    ( ,(kbd "M-\"")   ,(kbd "«") ,(kbd "»"))
-    ( ,(kbd "C-M-?")  ,(kbd "?") ,(kbd "?"))
-    ( ,(kbd "C-M-@")  ,(kbd "@") ,(kbd "@"))
-    ( ,(kbd "C-M-`")  ,(kbd "`") ,(kbd "`")) ;; command substitution backquotes
-    ( ,(kbd "C-M-'")  ,(kbd "‘") ,(kbd "’")) ;; typographical single quotes
-    ( ,(kbd "C-M-\"") ,(kbd "“") ,(kbd "”")) ;; typographical double quotes
+    (                 ,(kbd "!")  ,(kbd "!"))
+    (                 ,(kbd "#")  ,(kbd "#"))
+    (                 ,(kbd "$")  ,(kbd "$"))
+    (                 ,(kbd "%")  ,(kbd "%"))
+    (                 ,(kbd "'")  ,(kbd "'"))
+    (                 ,(kbd "(")  ,(kbd ")"))
+    (                 ,(kbd "*")  ,(kbd "*"))
+    (                 ,(kbd ",")  ,(kbd ","))
+    (                 ,(kbd ".")  ,(kbd "."))
+    (                 ,(kbd "/")  ,(kbd "/"))
+    (                 ,(kbd ":")  ,(kbd ":"))
+    (                 ,(kbd "<")  ,(kbd ">"))
+    (                 ,(kbd "?")  ,(kbd "?"))
+    (                 ,(kbd "@")  ,(kbd "@"))
+    (                 ,(kbd "[")  ,(kbd "]"))
+    (                 ,(kbd "[")  ,(kbd "]"))
+    (                 ,(kbd "\"") ,(kbd "\""))
+    (                 ,(kbd "\\") ,(kbd "\\"))
+    (                 ,(kbd "^")  ,(kbd "^"))
+    (                 ,(kbd "_")  ,(kbd "_"))
+    (                 ,(kbd "`")  ,(kbd "'"))
+    (                 ,(kbd "{")  ,(kbd "}"))
+    (                 ,(kbd "|")  ,(kbd "|"))
+    ( ,(kbd "M-*")    ,(kbd "/")  ,(kbd "/"))
+    ( ,(kbd "M-\"")   ,(kbd "«")  ,(kbd "»"))
+    ( ,(kbd "M-`")    ,(kbd "`")  ,(kbd "`")) ;; command substitution backquotes
+    ( ,(kbd "C-M-`")  ,(kbd "`")  ,(kbd "`")) ;; command substitution backquotes
+    ( ,(kbd "C-M-'")  ,(kbd "‘")  ,(kbd "’")) ;; typographical single quotes
+    ( ,(kbd "C-M-\"") ,(kbd "“")  ,(kbd "”")) ;; typographical double quotes
     )
   "Alist of quotes inserted by function `quote-per-event'.
 Each element looks like (\"INDEX-CHAR\" \"OPEN-CHAR\" \"CLOSE-CHAR\"),
@@ -76,29 +88,33 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
 (defcustom quote-per-event-triggers
   `(
     ;;; C-c bindings.   ;;; Ctl-/Meta-bindings.
-    ,(kbd "C-c '")      ,(kbd "C-'")
-    ,(kbd "C-c `")      ,(kbd "C-`")
-    ,(kbd "C-c \"")     ,(kbd "C-\"")
-    ,(kbd "C-c :")      ,(kbd "C-:")
-    ,(kbd "C-c (")      ,(kbd "C-(")
-    ,(kbd "C-c <")      ,(kbd "C-<")
-    ,(kbd "C-c {")      ,(kbd "C-{")
+    ,(kbd "C-c !")      ,(kbd "C-!")
+    ,(kbd "C-c #")      ,(kbd "C-#")
     ,(kbd "C-c $")      ,(kbd "C-$")
     ,(kbd "C-c %")      ,(kbd "C-%")
+    ,(kbd "C-c '")      ,(kbd "C-'")
+    ,(kbd "C-c (")      ,(kbd "C-(")
     ,(kbd "C-c *")      ,(kbd "C-*")
-    ,(kbd "C-c |")      ,(kbd "C-|")
+    ,(kbd "C-c /")      ,(kbd "M-*")
+    ,(kbd "C-c :")      ,(kbd "C-:")
+    ,(kbd "C-c <")      ,(kbd "C-<")
+    ,(kbd "C-c @")      ,(kbd "C-M-@")
     ,(kbd "C-c [")      ,(kbd "M-[")
+    ,(kbd "C-c \"")     ,(kbd "C-\"")
+    ,(kbd "C-c \\")     ,(kbd "C-M-\\")
+    ,(kbd "C-c ^")      ,(kbd "C-^")
     ,(kbd "C-c _")      ,(kbd "M-_")
-    ,(kbd "C-c C-.")    ,(kbd "C-.")
-    ,(kbd "C-c C-,")    ,(kbd "C-,")
-    ,(kbd "C-c M-\"")   ,(kbd "M-\"")
+    ,(kbd "C-c `")      ,(kbd "C-`")
+    ,(kbd "C-c {")      ,(kbd "C-{")
+    ,(kbd "C-c |")      ,(kbd "C-|")
     ,(kbd "C-c M-*")    ,(kbd "M-*")
-    ,(kbd "C-c C-M-?")  ,(kbd "C-M-?")
-    ,(kbd "C-c C-M-@")  ,(kbd "C-M-@")
-    ,(kbd "C-c C-M-`")  ,(kbd "C-M-`")
+    ,(kbd "C-c M-,")    ,(kbd "C-,")
+    ,(kbd "C-c M-.")    ,(kbd "C-.")
+    ,(kbd "C-c M-?")    ,(kbd "C-M-?")
+    ,(kbd "C-c M-\"")   ,(kbd "M-\"")
+    ,(kbd "C-c M-`")    ,(kbd "C-M-`")
     ,(kbd "C-c C-M-'")  ,(kbd "C-M-'")
     ,(kbd "C-c C-M-\"") ,(kbd "C-M-\"")
-    ,(kbd "C-c C-M-\\") ,(kbd "C-M-\\")
     )
   "List key-sequences bound to function `quote-per-event'.
 The last element of each key-sequence, with or without modifiers,
@@ -128,7 +144,7 @@ variable `quote-per-event-alist'.")
        elmt))
    maybe-indexed-pair))
 
-(defun init-quote-per-event-alist (init-alist-sym custom-quotes-sym)
+(defun init-quote-per-event-alist (custom-quotes-sym)
   "Initialize variable `quote-per-event-alist'."
   (let ((custom-quotes-list
          (mapcar #'characterize-quote-per-event-quotes
@@ -136,7 +152,7 @@ variable `quote-per-event-alist'.")
     (mapc
      (lambda (pair)
        (add-to-list 'quote-per-event-alist pair))
-     (append (symbol-value init-alist-sym) custom-quotes-list))))
+     custom-quotes-list)))
 
 (defun init-quote-per-event-closings (quote-per-event-alist-sym)
   "Initialize variable `quote-per-event-closings'."
@@ -245,10 +261,10 @@ point is quoted instead of TAP:
   * Point is at EOL and NUM is positive.
   * Point is at a closing quote bounding TAP and NUM is positive.
 
-If thing-at-point is nil, then a non-zero |NUM| indicates the
-number of quotes to insert or delete around point, depending upon
-whether NUM is postive or negative, respecitvely. If NUM is 0,
-then all quotes around point are deleted."
+If TAP is nil, then a non-zero |NUM| indicates the number of
+quotes to insert or delete around point, depending upon whether
+NUM is postive or negative, respecitvely. If NUM is 0, then all
+quotes around point are deleted."
   (interactive "P")
   (let* ((pair (or (assq last-command-event quote-per-event-alist)
                    (assq (event-basic-type last-command-event)
@@ -392,9 +408,7 @@ regions, things-at-point and points."
 
   ;;; Initialize quotes lists.
   (when quote-per-event-mode
-    (init-quote-per-event-alist
-     'insert-pair-alist
-     'quote-per-event-quotes)
+    (init-quote-per-event-alist 'quote-per-event-quotes)
     (init-quote-per-event-closings
      'quote-per-event-alist)))
 
