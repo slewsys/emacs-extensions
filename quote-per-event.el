@@ -87,7 +87,7 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
 
 (defcustom quote-per-event-triggers
   `(
-    ;;; C-c bindings.   ;;; Ctl-/Meta-bindings.
+;;; C-c bindings        Ctl-/Meta-bindings.
     ,(kbd "C-c !")      ,(kbd "C-!")
     ,(kbd "C-c #")      ,(kbd "C-#")
     ,(kbd "C-c $")      ,(kbd "C-$")
@@ -102,14 +102,14 @@ where INDEX-CHAR acts as an index, but is not itself inserted."
     ,(kbd "C-c [")      ,(kbd "M-[")
     ,(kbd "C-c \"")     ,(kbd "C-\"")
     ,(kbd "C-c \\")     ,(kbd "C-M-\\")
-    ,(kbd "C-c ^")      ,(kbd "C-^")
     ,(kbd "C-c _")      ,(kbd "M-_")
     ,(kbd "C-c `")      ,(kbd "C-`")
     ,(kbd "C-c {")      ,(kbd "C-{")
     ,(kbd "C-c |")      ,(kbd "C-|")
+    ,(kbd "C-c C-^")    ,(kbd "C-^")
     ,(kbd "C-c M-*")    ,(kbd "M-*")
-    ,(kbd "C-c M-,")    ,(kbd "C-,")
-    ,(kbd "C-c M-.")    ,(kbd "C-.")
+    ,(kbd "C-c C-,")    ;; ,(kbd "C-,")
+    ,(kbd "C-c C-.")    ;; ,(kbd "C-.")
     ,(kbd "C-c M-?")    ,(kbd "C-M-?")
     ,(kbd "C-c M-\"")   ,(kbd "M-\"")
     ,(kbd "C-c M-`")    ,(kbd "C-M-`")
