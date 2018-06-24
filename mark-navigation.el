@@ -36,7 +36,7 @@
 ;;
 (defgroup mark-navigation ()
   "Navigate mark ring."
-  :package-version '(mark-navigation . "1.0")
+  :package-version '(mark-navigation . "1.1")
   :group 'convenience)
 
 (defcustom mark-navigation-bindings
@@ -170,9 +170,12 @@ traversing the local and global mark rings."
   ;;; Customization group
   :group 'mark-navigation
 
-  ;;; Disable `mark-navigation-mode' in minibuffer.
+  ;;; Disable `mark-navigation-mode' in minibuffer and comint-mode.
   (when mark-navigation-mode
     (add-to-list 'minibuffer-setup-hook
+                 (lambda ()
+                   (mark-navigation-local-mode -1)))
+    (add-hook 'comint-mode-hook
                  (lambda ()
                    (mark-navigation-local-mode -1)))))
 
