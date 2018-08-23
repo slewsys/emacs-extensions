@@ -47,207 +47,207 @@
 (defcustom unicode-keymap-extensions-bindings
 
    ;;; KEY SEQUENCE         UNICODE CHAR
-  `((,(kbd "C-x 8 : :") . ,(kbd "：")) ;;; FULL-WIDTH COLON
-    (,(kbd "C-x 8 : /") . ,(kbd "／")) ;;; FULL-WIDTH SOLIDUS
-    (,(kbd "C-x 8 / l") . ,(kbd "ł")) ;;; SMALL L WITH STROKE
-    (,(kbd "C-x 8 / L") . ,(kbd "Ł")) ;;; CAPITAL L WITH STROKE
-    (,(kbd "C-x 8 v c") . ,(kbd "č")) ;;; SMALL C WITH CARON
-    (,(kbd "C-x 8 v C") . ,(kbd "Č")) ;;; CAPITAL C WITH CARON
-    (,(kbd "C-x 8 v e") . ,(kbd "ě")) ;;; SMALL E WITH CARON
-    (,(kbd "C-x 8 v E") . ,(kbd "Ě")) ;;; CAPITAL E WITH CARON
-    (,(kbd "C-x 8 v r") . ,(kbd "ř")) ;;; SMALL R WITH CARON
-    (,(kbd "C-x 8 v R") . ,(kbd "Ř")) ;;; CAPITAL R WITH CARON
-    (,(kbd "C-x 8 v s") . ,(kbd "š")) ;;; SMALL S WITH CARON
-    (,(kbd "C-x 8 v S") . ,(kbd "Š")) ;;; CAPITAL S WITH CARON
-    (,(kbd "C-x 8 v z") . ,(kbd "ž")) ;;; SMALL Z WITH CARON
-    (,(kbd "C-x 8 v Z") . ,(kbd "Ž")) ;;; CAPITAL Z WITH CARON
-    (,(kbd "C-x 8 . z") . ,(kbd "ż")) ;;; SMALL Z WITH DOT ABOVE
-    (,(kbd "C-x 8 . Z") . ,(kbd "Ż")) ;;; CAPITAL Z WITH DOT ABOVE
-    (,(kbd "C-x 8 , e") . ,(kbd "ę")) ;;; SMALL E WITH OGONEK
-    (,(kbd "C-x 8 , E") . ,(kbd "Ę")) ;;; CAPITAL E WITH OGONEK
-    (,(kbd "C-x 8 e a") . ,(kbd "æ")) ;;; SMALL LATIN AE
-    (,(kbd "C-x 8 E A") . ,(kbd "Æ")) ;;; CAPITAL LATIN AE
-    (,(kbd "C-x 8 e o") . ,(kbd "œ")) ;;; SMALL LATIN OE
-    (,(kbd "C-x 8 E O") . ,(kbd "Œ")) ;;; CAPITAL LATIN OE
+  `((,(kbd "C-x 8 : :") . "：") ;;; FULL-WIDTH COLON
+    (,(kbd "C-x 8 : /") . "／") ;;; FULL-WIDTH SOLIDUS
+    (,(kbd "C-x 8 / l") . "ł") ;;; SMALL L WITH STROKE
+    (,(kbd "C-x 8 / L") . "Ł") ;;; CAPITAL L WITH STROKE
+    (,(kbd "C-x 8 v c") . "č") ;;; SMALL C WITH CARON
+    (,(kbd "C-x 8 v C") . "Č") ;;; CAPITAL C WITH CARON
+    (,(kbd "C-x 8 v e") . "ě") ;;; SMALL E WITH CARON
+    (,(kbd "C-x 8 v E") . "Ě") ;;; CAPITAL E WITH CARON
+    (,(kbd "C-x 8 v r") . "ř") ;;; SMALL R WITH CARON
+    (,(kbd "C-x 8 v R") . "Ř") ;;; CAPITAL R WITH CARON
+    (,(kbd "C-x 8 v s") . "š") ;;; SMALL S WITH CARON
+    (,(kbd "C-x 8 v S") . "Š") ;;; CAPITAL S WITH CARON
+    (,(kbd "C-x 8 v z") . "ž") ;;; SMALL Z WITH CARON
+    (,(kbd "C-x 8 v Z") . "Ž") ;;; CAPITAL Z WITH CARON
+    (,(kbd "C-x 8 . z") . "ż") ;;; SMALL Z WITH DOT ABOVE
+    (,(kbd "C-x 8 . Z") . "Ż") ;;; CAPITAL Z WITH DOT ABOVE
+    (,(kbd "C-x 8 , e") . "ę") ;;; SMALL E WITH OGONEK
+    (,(kbd "C-x 8 , E") . "Ę") ;;; CAPITAL E WITH OGONEK
+    (,(kbd "C-x 8 e a") . "æ") ;;; SMALL LATIN AE
+    (,(kbd "C-x 8 E A") . "Æ") ;;; CAPITAL LATIN AE
+    (,(kbd "C-x 8 e o") . "œ") ;;; SMALL LATIN OE
+    (,(kbd "C-x 8 E O") . "Œ") ;;; CAPITAL LATIN OE
 
-    (,(kbd "C-x 8 g a") . ,(kbd "α")) ;;; GREEK SMALL LETTER ALPHA
-    (,(kbd "C-x 8 g b") . ,(kbd "β")) ;;; GREEK SMALL LETTER BETA
-    (,(kbd "C-x 8 g g") . ,(kbd "γ")) ;;; GREEK SMALL LETTER GAMMA
-    (,(kbd "C-x 8 g d") . ,(kbd "δ")) ;;; GREEK SMALL LETTER DELTA
-    (,(kbd "C-x 8 g e") . ,(kbd "ε")) ;;; GREEK SMALL LETTER EPSILON
-    (,(kbd "C-x 8 g z") . ,(kbd "ζ")) ;;; GREEK SMALL LETTER ZETA
-    (,(kbd "C-x 8 g h") . ,(kbd "η")) ;;; GREEK SMALL LETTER ETA
-    (,(kbd "C-x 8 g f") . ,(kbd "θ")) ;;; GREEK SMALL LETTER THETA
-    (,(kbd "C-x 8 g i") . ,(kbd "ι")) ;;; GREEK SMALL LETTER IOTA
-    (,(kbd "C-x 8 g k") . ,(kbd "κ")) ;;; GREEK SMALL LETTER KAPPA
-    (,(kbd "C-x 8 g l") . ,(kbd "λ")) ;;; GREEK SMALL LETTER LAMDA
-    (,(kbd "C-x 8 g m") . ,(kbd "μ")) ;;; GREEK SMALL LETTER MU
-    (,(kbd "C-x 8 g n") . ,(kbd "ν")) ;;; GREEK SMALL LETTER NU
-    (,(kbd "C-x 8 g x") . ,(kbd "ξ")) ;;; GREEK SMALL LETTER XI
-    (,(kbd "C-x 8 g o") . ,(kbd "ο")) ;;; GREEK SMALL LETTER OMICRON
-    (,(kbd "C-x 8 g p") . ,(kbd "π")) ;;; GREEK SMALL LETTER PI
-    (,(kbd "C-x 8 g r") . ,(kbd "ρ")) ;;; GREEK SMALL LETTER RHO
-    (,(kbd "C-x 8 g s") . ,(kbd "σ")) ;;; GREEK SMALL LETTER SIGMA
-    (,(kbd "C-x 8 g t") . ,(kbd "τ")) ;;; GREEK SMALL LETTER TAU
-    (,(kbd "C-x 8 g u") . ,(kbd "υ")) ;;; GREEK SMALL LETTER UPSILON
-    (,(kbd "C-x 8 g v") . ,(kbd "φ")) ;;; GREEK SMALL LETTER PHI
-    (,(kbd "C-x 8 g c") . ,(kbd "χ")) ;;; GREEK SMALL LETTER CHI
-    (,(kbd "C-x 8 g y") . ,(kbd "ψ")) ;;; GREEK SMALL LETTER PSI
-    (,(kbd "C-x 8 g w") . ,(kbd "ω")) ;;; GREEK SMALL LETTER OMEGA
+    (,(kbd "C-x 8 g a") . "α") ;;; GREEK SMALL LETTER ALPHA
+    (,(kbd "C-x 8 g b") . "β") ;;; GREEK SMALL LETTER BETA
+    (,(kbd "C-x 8 g g") . "γ") ;;; GREEK SMALL LETTER GAMMA
+    (,(kbd "C-x 8 g d") . "δ") ;;; GREEK SMALL LETTER DELTA
+    (,(kbd "C-x 8 g e") . "ε") ;;; GREEK SMALL LETTER EPSILON
+    (,(kbd "C-x 8 g z") . "ζ") ;;; GREEK SMALL LETTER ZETA
+    (,(kbd "C-x 8 g h") . "η") ;;; GREEK SMALL LETTER ETA
+    (,(kbd "C-x 8 g f") . "θ") ;;; GREEK SMALL LETTER THETA
+    (,(kbd "C-x 8 g i") . "ι") ;;; GREEK SMALL LETTER IOTA
+    (,(kbd "C-x 8 g k") . "κ") ;;; GREEK SMALL LETTER KAPPA
+    (,(kbd "C-x 8 g l") . "λ") ;;; GREEK SMALL LETTER LAMDA
+    (,(kbd "C-x 8 g m") . "μ") ;;; GREEK SMALL LETTER MU
+    (,(kbd "C-x 8 g n") . "ν") ;;; GREEK SMALL LETTER NU
+    (,(kbd "C-x 8 g x") . "ξ") ;;; GREEK SMALL LETTER XI
+    (,(kbd "C-x 8 g o") . "ο") ;;; GREEK SMALL LETTER OMICRON
+    (,(kbd "C-x 8 g p") . "π") ;;; GREEK SMALL LETTER PI
+    (,(kbd "C-x 8 g r") . "ρ") ;;; GREEK SMALL LETTER RHO
+    (,(kbd "C-x 8 g s") . "σ") ;;; GREEK SMALL LETTER SIGMA
+    (,(kbd "C-x 8 g t") . "τ") ;;; GREEK SMALL LETTER TAU
+    (,(kbd "C-x 8 g u") . "υ") ;;; GREEK SMALL LETTER UPSILON
+    (,(kbd "C-x 8 g v") . "φ") ;;; GREEK SMALL LETTER PHI
+    (,(kbd "C-x 8 g c") . "χ") ;;; GREEK SMALL LETTER CHI
+    (,(kbd "C-x 8 g y") . "ψ") ;;; GREEK SMALL LETTER PSI
+    (,(kbd "C-x 8 g w") . "ω") ;;; GREEK SMALL LETTER OMEGA
 
 
-    (,(kbd "C-x 8 g A") . ,(kbd "Α")) ;;; GREEK CAPITAL LETTER ALPHA
-    (,(kbd "C-x 8 g B") . ,(kbd "Β")) ;;; Greek CAPITAL LETTER BETA
-    (,(kbd "C-x 8 g G") . ,(kbd "Γ")) ;;; GREEK CAPITAL LETTER GAMMA
-    (,(kbd "C-x 8 g D") . ,(kbd "Δ")) ;;; GREEK CAPITAL LETTER DELTA
-    (,(kbd "C-x 8 g E") . ,(kbd "Ε")) ;;; GREEK CAPITAL LETTER EPSILON
-    (,(kbd "C-x 8 g Z") . ,(kbd "Ζ")) ;;; GREEK CAPITAL LETTER ZETA
-    (,(kbd "C-x 8 g H") . ,(kbd "Η")) ;;; GREEK CAPITAL LETTER ETA
-    (,(kbd "C-x 8 g F") . ,(kbd "Θ")) ;;; GREEK CAPITAL LETTER THETA
-    (,(kbd "C-x 8 g I") . ,(kbd "Ι")) ;;; GREEK CAPITAL LETTER IOTA
-    (,(kbd "C-x 8 g K") . ,(kbd "Κ")) ;;; GREEK CAPITAL LETTER KAPPA
-    (,(kbd "C-x 8 g L") . ,(kbd "Λ")) ;;; GREEK CAPITAL LETTER LAMDA
-    (,(kbd "C-x 8 g M") . ,(kbd "Μ")) ;;; GREEK CAPITAL LETTER MU
-    (,(kbd "C-x 8 g N") . ,(kbd "Ν")) ;;; GREEK CAPITAL LETTER NU
-    (,(kbd "C-x 8 g X") . ,(kbd "Ξ")) ;;; GREEK CAPITAL LETTER XI
-    (,(kbd "C-x 8 g O") . ,(kbd "Ο")) ;;; GREEK CAPITAL LETTER OMICRON
-    (,(kbd "C-x 8 g P") . ,(kbd "Π")) ;;; GREEK CAPITAL LETTER PI
-    (,(kbd "C-x 8 g R") . ,(kbd "Ρ")) ;;; GREEK CAPITAL LETTER RHO
-    (,(kbd "C-x 8 g S") . ,(kbd "Σ")) ;;; GREEK CAPITAL LETTER SIGMA
-    (,(kbd "C-x 8 g T") . ,(kbd "Τ")) ;;; GREEK CAPITAL LETTER TAU
-    (,(kbd "C-x 8 g U") . ,(kbd "Υ")) ;;; GREEK CAPITAL LETTER UPSILON
-    (,(kbd "C-x 8 g V") . ,(kbd "Φ")) ;;; GREEK CAPITAL LETTER PHI
-    (,(kbd "C-x 8 g C") . ,(kbd "Χ")) ;;; GREEK CAPITAL LETTER CHI
-    (,(kbd "C-x 8 g Y") . ,(kbd "Ψ")) ;;; GREEK CAPITAL LETTER PSI
-    (,(kbd "C-x 8 g W") . ,(kbd "Ω")) ;;; GREEK CAPITAL LETTER OMEGA
+    (,(kbd "C-x 8 g A") . "Α") ;;; GREEK CAPITAL LETTER ALPHA
+    (,(kbd "C-x 8 g B") . "Β") ;;; Greek CAPITAL LETTER BETA
+    (,(kbd "C-x 8 g G") . "Γ") ;;; GREEK CAPITAL LETTER GAMMA
+    (,(kbd "C-x 8 g D") . "Δ") ;;; GREEK CAPITAL LETTER DELTA
+    (,(kbd "C-x 8 g E") . "Ε") ;;; GREEK CAPITAL LETTER EPSILON
+    (,(kbd "C-x 8 g Z") . "Ζ") ;;; GREEK CAPITAL LETTER ZETA
+    (,(kbd "C-x 8 g H") . "Η") ;;; GREEK CAPITAL LETTER ETA
+    (,(kbd "C-x 8 g F") . "Θ") ;;; GREEK CAPITAL LETTER THETA
+    (,(kbd "C-x 8 g I") . "Ι") ;;; GREEK CAPITAL LETTER IOTA
+    (,(kbd "C-x 8 g K") . "Κ") ;;; GREEK CAPITAL LETTER KAPPA
+    (,(kbd "C-x 8 g L") . "Λ") ;;; GREEK CAPITAL LETTER LAMDA
+    (,(kbd "C-x 8 g M") . "Μ") ;;; GREEK CAPITAL LETTER MU
+    (,(kbd "C-x 8 g N") . "Ν") ;;; GREEK CAPITAL LETTER NU
+    (,(kbd "C-x 8 g X") . "Ξ") ;;; GREEK CAPITAL LETTER XI
+    (,(kbd "C-x 8 g O") . "Ο") ;;; GREEK CAPITAL LETTER OMICRON
+    (,(kbd "C-x 8 g P") . "Π") ;;; GREEK CAPITAL LETTER PI
+    (,(kbd "C-x 8 g R") . "Ρ") ;;; GREEK CAPITAL LETTER RHO
+    (,(kbd "C-x 8 g S") . "Σ") ;;; GREEK CAPITAL LETTER SIGMA
+    (,(kbd "C-x 8 g T") . "Τ") ;;; GREEK CAPITAL LETTER TAU
+    (,(kbd "C-x 8 g U") . "Υ") ;;; GREEK CAPITAL LETTER UPSILON
+    (,(kbd "C-x 8 g V") . "Φ") ;;; GREEK CAPITAL LETTER PHI
+    (,(kbd "C-x 8 g C") . "Χ") ;;; GREEK CAPITAL LETTER CHI
+    (,(kbd "C-x 8 g Y") . "Ψ") ;;; GREEK CAPITAL LETTER PSI
+    (,(kbd "C-x 8 g W") . "Ω") ;;; GREEK CAPITAL LETTER OMEGA
 
-    (,(kbd "C-x 8 h a") . ,(kbd "א")) ;;; HEBREW LETTER ALEF
-    (,(kbd "C-x 8 h b") . ,(kbd "ב")) ;;; HEBREW LETTER BET
-    (,(kbd "C-x 8 h g") . ,(kbd "ג")) ;;; HEBREW LETTER GIMEL
-    (,(kbd "C-x 8 h d") . ,(kbd "ד")) ;;; HEBREW LETTER DALET
-    (,(kbd "C-x 8 h h") . ,(kbd "ה")) ;;; HEBREW LETTER HE
-    (,(kbd "C-x 8 h v") . ,(kbd "ו")) ;;; HEBREW LETTER VAV
-    (,(kbd "C-x 8 h z") . ,(kbd "ז")) ;;; HEBREW LETTER ZAYIN
-    (,(kbd "C-x 8 h c") . ,(kbd "ח")) ;;; HEBREW LETTER HET
-    (,(kbd "C-x 8 h f") . ,(kbd "ט")) ;;; HEBREW LETTER TET
-    (,(kbd "C-x 8 h y") . ,(kbd "י")) ;;; HEBREW LETTER YOD
-    (,(kbd "C-x 8 h K") . ,(kbd "ך")) ;;; HEBREW LETTER FINAL KAF
-    (,(kbd "C-x 8 h k") . ,(kbd "כ")) ;;; HEBREW LETTER KAF
-    (,(kbd "C-x 8 h l") . ,(kbd "ל")) ;;; HEBREW LETTER LAMED
-    (,(kbd "C-x 8 h M") . ,(kbd "ם")) ;;; HEBREW LETTER FINAL MEM
-    (,(kbd "C-x 8 h m") . ,(kbd "מ")) ;;; HEBREW LETTER MEM
-    (,(kbd "C-x 8 h N") . ,(kbd "ן")) ;;; HEBREW LETTER FINAL NUN
-    (,(kbd "C-x 8 h n") . ,(kbd "נ")) ;;; HEBREW LETTER NUN
-    (,(kbd "C-x 8 h x") . ,(kbd "ס")) ;;; HEBREW LETTER SAMEKH
-    (,(kbd "C-x 8 h j") . ,(kbd "ע")) ;;; HEBREW LETTER AYIN
-    (,(kbd "C-x 8 h P") . ,(kbd "ף")) ;;; HEBREW LETTER FINAL PE
-    (,(kbd "C-x 8 h p") . ,(kbd "פ")) ;;; HEBREW LETTER PE
-    (,(kbd "C-x 8 h Z") . ,(kbd "ץ")) ;;; HEBREW LETTER FINAL TSADI
-    (,(kbd "C-x 8 h z") . ,(kbd "צ")) ;;; HEBREW LETTER TSADI
-    (,(kbd "C-x 8 h q") . ,(kbd "ק")) ;;; HEBREW LETTER QOF
-    (,(kbd "C-x 8 h r") . ,(kbd "ר")) ;;; HEBREW LETTER RESH
-    (,(kbd "C-x 8 h s") . ,(kbd "ש")) ;;; HEBREW LETTER SHIN
-    (,(kbd "C-x 8 h t") . ,(kbd "ת")) ;;; HEBREW LETTER TAV
+    (,(kbd "C-x 8 h a") . "א") ;;; HEBREW LETTER ALEF
+    (,(kbd "C-x 8 h b") . "ב") ;;; HEBREW LETTER BET
+    (,(kbd "C-x 8 h g") . "ג") ;;; HEBREW LETTER GIMEL
+    (,(kbd "C-x 8 h d") . "ד") ;;; HEBREW LETTER DALET
+    (,(kbd "C-x 8 h h") . "ה") ;;; HEBREW LETTER HE
+    (,(kbd "C-x 8 h v") . "ו") ;;; HEBREW LETTER VAV
+    (,(kbd "C-x 8 h z") . "ז") ;;; HEBREW LETTER ZAYIN
+    (,(kbd "C-x 8 h c") . "ח") ;;; HEBREW LETTER HET
+    (,(kbd "C-x 8 h f") . "ט") ;;; HEBREW LETTER TET
+    (,(kbd "C-x 8 h y") . "י") ;;; HEBREW LETTER YOD
+    (,(kbd "C-x 8 h K") . "ך") ;;; HEBREW LETTER FINAL KAF
+    (,(kbd "C-x 8 h k") . "כ") ;;; HEBREW LETTER KAF
+    (,(kbd "C-x 8 h l") . "ל") ;;; HEBREW LETTER LAMED
+    (,(kbd "C-x 8 h M") . "ם") ;;; HEBREW LETTER FINAL MEM
+    (,(kbd "C-x 8 h m") . "מ") ;;; HEBREW LETTER MEM
+    (,(kbd "C-x 8 h N") . "ן") ;;; HEBREW LETTER FINAL NUN
+    (,(kbd "C-x 8 h n") . "נ") ;;; HEBREW LETTER NUN
+    (,(kbd "C-x 8 h x") . "ס") ;;; HEBREW LETTER SAMEKH
+    (,(kbd "C-x 8 h j") . "ע") ;;; HEBREW LETTER AYIN
+    (,(kbd "C-x 8 h P") . "ף") ;;; HEBREW LETTER FINAL PE
+    (,(kbd "C-x 8 h p") . "פ") ;;; HEBREW LETTER PE
+    (,(kbd "C-x 8 h Z") . "ץ") ;;; HEBREW LETTER FINAL TSADI
+    (,(kbd "C-x 8 h z") . "צ") ;;; HEBREW LETTER TSADI
+    (,(kbd "C-x 8 h q") . "ק") ;;; HEBREW LETTER QOF
+    (,(kbd "C-x 8 h r") . "ר") ;;; HEBREW LETTER RESH
+    (,(kbd "C-x 8 h s") . "ש") ;;; HEBREW LETTER SHIN
+    (,(kbd "C-x 8 h t") . "ת") ;;; HEBREW LETTER TAV
 
-    (,(kbd "C-x 8 r a") . ,(kbd "а")) ;;; CYRILLIC SMALL LETTER A
-    (,(kbd "C-x 8 r b") . ,(kbd "б")) ;;; CYRILLIC SMALL LETTER BE
-    (,(kbd "C-x 8 r v") . ,(kbd "в")) ;;; CYRILLIC SMALL LETTER VE
-    (,(kbd "C-x 8 r w") . ,(kbd "в")) ;;; CYRILLIC SMALL LETTER VE
-    (,(kbd "C-x 8 r g") . ,(kbd "г")) ;;; CYRILLIC SMALL LETTER GHE
-    (,(kbd "C-x 8 r d") . ,(kbd "д")) ;;; CYRILLIC SMALL LETTER DE
-    (,(kbd "C-x 8 r e") . ,(kbd "е")) ;;; CYRILLIC SMALL LETTER IE
-    (,(kbd "C-x 8 r / y") . ,(kbd "ё")) ;;; CYRILLIC SMALL LETTER IO
-    (,(kbd "C-x 8 r / x") . ,(kbd "ж")) ;;; CYRILLIC SMALL LETTER ZHE
-    (,(kbd "C-x 8 r z") . ,(kbd "з")) ;;; CYRILLIC SMALL LETTER ZE
-    (,(kbd "C-x 8 r i") . ,(kbd "и")) ;;; CYRILLIC SMALL LETTER I
-    (,(kbd "C-x 8 r j") . ,(kbd "й")) ;;; CYRILLIC SMALL LETTER SHORT I
-    (,(kbd "C-x 8 r k") . ,(kbd "к")) ;;; CYRILLIC SMALL LETTER KA
-    (,(kbd "C-x 8 r l") . ,(kbd "л")) ;;; CYRILLIC SMALL LETTER EL
-    (,(kbd "C-x 8 r m") . ,(kbd "м")) ;;; CYRILLIC SMALL LETTER EM
-    (,(kbd "C-x 8 r n") . ,(kbd "н")) ;;; CYRILLIC SMALL LETTER EN
-    (,(kbd "C-x 8 r o") . ,(kbd "о")) ;;; CYRILLIC SMALL LETTER O
-    (,(kbd "C-x 8 r p") . ,(kbd "п")) ;;; CYRILLIC SMALL LETTER PE
-    (,(kbd "C-x 8 r r") . ,(kbd "р")) ;;; CYRILLIC SMALL LETTER ER
-    (,(kbd "C-x 8 r s") . ,(kbd "с")) ;;; CYRILLIC SMALL LETTER ES
-    (,(kbd "C-x 8 r t") . ,(kbd "т")) ;;; CYRILLIC SMALL LETTER TE
-    (,(kbd "C-x 8 r u") . ,(kbd "у")) ;;; CYRILLIC SMALL LETTER U
-    (,(kbd "C-x 8 r f") . ,(kbd "ф")) ;;; CYRILLIC SMALL LETTER EF
-    (,(kbd "C-x 8 r h") . ,(kbd "х")) ;;; CYRILLIC SMALL LETTER HA
-    (,(kbd "C-x 8 r x") . ,(kbd "х")) ;;; CYRILLIC SMALL LETTER HA
-    (,(kbd "C-x 8 r c") . ,(kbd "ц")) ;;; CYRILLIC SMALL LETTER TSE
-    (,(kbd "C-x 8 r / c") . ,(kbd "ч")) ;;; CYRILLIC SMALL LETTER CHE
-    (,(kbd "C-x 8 r / t") . ,(kbd "щ")) ;;; CYRILLIC SMALL LETTER SHCHA
-    (,(kbd "C-x 8 r ~") . ,(kbd "ъ")) ;;; CYRILLIC SMALL LETTER HARD SIGN
-    (,(kbd "C-x 8 r y") . ,(kbd "ы")) ;;; CYRILLIC SMALL LETTER YERU
-    (,(kbd "C-x 8 r '") . ,(kbd "ь")) ;;; CYRILLIC SMALL LETTER SOFT SIGN
-    (,(kbd "C-x 8 r / f") . ,(kbd "э")) ;;; CYRILLIC SMALL LETTER E
-    (,(kbd "C-x 8 r / u") . ,(kbd "ю")) ;;; CYRILLIC SMALL LETTER YU
-    (,(kbd "C-x 8 r q") . ,(kbd "я")) ;;; CYRILLIC SMALL LETTER YA
+    (,(kbd "C-x 8 r a")   . "а") ;;; CYRILLIC SMALL LETTER A
+    (,(kbd "C-x 8 r b")   . "б") ;;; CYRILLIC SMALL LETTER BE
+    (,(kbd "C-x 8 r v")   . "в") ;;; CYRILLIC SMALL LETTER VE
+    (,(kbd "C-x 8 r w")   . "в") ;;; CYRILLIC SMALL LETTER VE
+    (,(kbd "C-x 8 r g")   . "г") ;;; CYRILLIC SMALL LETTER GHE
+    (,(kbd "C-x 8 r d")   . "д") ;;; CYRILLIC SMALL LETTER DE
+    (,(kbd "C-x 8 r e")   . "е") ;;; CYRILLIC SMALL LETTER IE
+    (,(kbd "C-x 8 r / y") . "ё") ;;; CYRILLIC SMALL LETTER IO
+    (,(kbd "C-x 8 r / x") . "ж") ;;; CYRILLIC SMALL LETTER ZHE
+    (,(kbd "C-x 8 r z")   . "з") ;;; CYRILLIC SMALL LETTER ZE
+    (,(kbd "C-x 8 r i")   . "и") ;;; CYRILLIC SMALL LETTER I
+    (,(kbd "C-x 8 r j")   . "й") ;;; CYRILLIC SMALL LETTER SHORT I
+    (,(kbd "C-x 8 r k")   . "к") ;;; CYRILLIC SMALL LETTER KA
+    (,(kbd "C-x 8 r l")   . "л") ;;; CYRILLIC SMALL LETTER EL
+    (,(kbd "C-x 8 r m")   . "м") ;;; CYRILLIC SMALL LETTER EM
+    (,(kbd "C-x 8 r n")   . "н") ;;; CYRILLIC SMALL LETTER EN
+    (,(kbd "C-x 8 r o")   . "о") ;;; CYRILLIC SMALL LETTER O
+    (,(kbd "C-x 8 r p")   . "п") ;;; CYRILLIC SMALL LETTER PE
+    (,(kbd "C-x 8 r r")   . "р") ;;; CYRILLIC SMALL LETTER ER
+    (,(kbd "C-x 8 r s")   . "с") ;;; CYRILLIC SMALL LETTER ES
+    (,(kbd "C-x 8 r t")   . "т") ;;; CYRILLIC SMALL LETTER TE
+    (,(kbd "C-x 8 r u")   . "у") ;;; CYRILLIC SMALL LETTER U
+    (,(kbd "C-x 8 r f")   . "ф") ;;; CYRILLIC SMALL LETTER EF
+    (,(kbd "C-x 8 r h")   . "х") ;;; CYRILLIC SMALL LETTER HA
+    (,(kbd "C-x 8 r x")   . "х") ;;; CYRILLIC SMALL LETTER HA
+    (,(kbd "C-x 8 r c")   . "ц") ;;; CYRILLIC SMALL LETTER TSE
+    (,(kbd "C-x 8 r / c") . "ч") ;;; CYRILLIC SMALL LETTER CHE
+    (,(kbd "C-x 8 r / t") . "щ") ;;; CYRILLIC SMALL LETTER SHCHA
+    (,(kbd "C-x 8 r ~")   . "ъ") ;;; CYRILLIC SMALL LETTER HARD SIGN
+    (,(kbd "C-x 8 r y")   . "ы") ;;; CYRILLIC SMALL LETTER YERU
+    (,(kbd "C-x 8 r '")   . "ь") ;;; CYRILLIC SMALL LETTER SOFT SIGN
+    (,(kbd "C-x 8 r / f") . "э") ;;; CYRILLIC SMALL LETTER E
+    (,(kbd "C-x 8 r / u") . "ю") ;;; CYRILLIC SMALL LETTER YU
+    (,(kbd "C-x 8 r q")   . "я") ;;; CYRILLIC SMALL LETTER YA
 
-    (,(kbd "C-x 8 r / a") . ,(kbd "ї")) ;;; CYRILLIC SMALL LETTER YI
-    (,(kbd "C-x 8 r / d") . ,(kbd "ђ")) ;;; CYRILLIC SMALL LETTER DJE
-    (,(kbd "C-x 8 r / e") . ,(kbd "є")) ;;; CYRILLIC SMALL LETTER UKRAINIAN IE
-    (,(kbd "C-x 8 r / g") . ,(kbd "ѓ")) ;;; CYRILLIC SMALL LETTER GJE
-    (,(kbd "C-x 8 r / h") . ,(kbd "ш")) ;;; CYRILLIC SMALL LETTER SHA
-    (,(kbd "C-x 8 r / i") . ,(kbd "і")) ;;; CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
-    (,(kbd "C-x 8 r / j") . ,(kbd "ј")) ;;; CYRILLIC SMALL LETTER JE
-    (,(kbd "C-x 8 r / k") . ,(kbd "ќ")) ;;; CYRILLIC SMALL LETTER KJE
-    (,(kbd "C-x 8 r / l") . ,(kbd "љ")) ;;; CYRILLIC SMALL LETTER LJE
-    (,(kbd "C-x 8 r / n") . ,(kbd "њ")) ;;; CYRILLIC SMALL LETTER NJE
-    (,(kbd "C-x 8 r / r") . ,(kbd "ћ")) ;;; CYRILLIC SMALL LETTER TSHE
-    (,(kbd "C-x 8 r / s") . ,(kbd "ѕ")) ;;; CYRILLIC SMALL LETTER DZE
-    (,(kbd "C-x 8 r / v") . ,(kbd "ў")) ;;; CYRILLIC SMALL LETTER SHORT U
-    (,(kbd "C-x 8 r / z") . ,(kbd "џ")) ;;; CYRILLIC SMALL LETTER DZHE
+    (,(kbd "C-x 8 r / a") . "ї") ;;; CYRILLIC SMALL LETTER YI
+    (,(kbd "C-x 8 r / d") . "ђ") ;;; CYRILLIC SMALL LETTER DJE
+    (,(kbd "C-x 8 r / e") . "є") ;;; CYRILLIC SMALL LETTER UKRAINIAN IE
+    (,(kbd "C-x 8 r / g") . "ѓ") ;;; CYRILLIC SMALL LETTER GJE
+    (,(kbd "C-x 8 r / h") . "ш") ;;; CYRILLIC SMALL LETTER SHA
+    (,(kbd "C-x 8 r / i") . "і") ;;; CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
+    (,(kbd "C-x 8 r / j") . "ј") ;;; CYRILLIC SMALL LETTER JE
+    (,(kbd "C-x 8 r / k") . "ќ") ;;; CYRILLIC SMALL LETTER KJE
+    (,(kbd "C-x 8 r / l") . "љ") ;;; CYRILLIC SMALL LETTER LJE
+    (,(kbd "C-x 8 r / n") . "њ") ;;; CYRILLIC SMALL LETTER NJE
+    (,(kbd "C-x 8 r / r") . "ћ") ;;; CYRILLIC SMALL LETTER TSHE
+    (,(kbd "C-x 8 r / s") . "ѕ") ;;; CYRILLIC SMALL LETTER DZE
+    (,(kbd "C-x 8 r / v") . "ў") ;;; CYRILLIC SMALL LETTER SHORT U
+    (,(kbd "C-x 8 r / z") . "џ") ;;; CYRILLIC SMALL LETTER DZHE
 
-    (,(kbd "C-x 8 r A") . ,(kbd "А")) ;;; CYRILLIC CAPITAL LETTER A
-    (,(kbd "C-x 8 r B") . ,(kbd "Б")) ;;; CYRILLIC CAPITAL LETTER BE
-    (,(kbd "C-x 8 r V") . ,(kbd "В")) ;;; CYRILLIC CAPITAL LETTER VE
-    (,(kbd "C-x 8 r W") . ,(kbd "В")) ;;; CYRILLIC CAPITAL LETTER VE
-    (,(kbd "C-x 8 r G") . ,(kbd "Г")) ;;; CYRILLIC CAPITAL LETTER GHE
-    (,(kbd "C-x 8 r D") . ,(kbd "Д")) ;;; CYRILLIC CAPITAL LETTER DE
-    (,(kbd "C-x 8 r E") . ,(kbd "Е")) ;;; CYRILLIC CAPITAL LETTER IE
-    (,(kbd "C-x 8 r / Y") . ,(kbd "Ё")) ;;; CYRILLIC CAPITAL LETTER IO
-    (,(kbd "C-x 8 r / X") . ,(kbd "Ж")) ;;; CYRILLIC CAPITAL LETTER ZHE
-    (,(kbd "C-x 8 r Z") . ,(kbd "З")) ;;; CYRILLIC CAPITAL LETTER ZE
-    (,(kbd "C-x 8 r I") . ,(kbd "И")) ;;; CYRILLIC CAPITAL LETTER I
-    (,(kbd "C-x 8 r J") . ,(kbd "Й")) ;;; CYRILLIC CAPITAL LETTER SHORT I
-    (,(kbd "C-x 8 r K") . ,(kbd "К")) ;;; CYRILLIC CAPITAL LETTER KA
-    (,(kbd "C-x 8 r L") . ,(kbd "Л")) ;;; CYRILLIC CAPITAL LETTER EL
-    (,(kbd "C-x 8 r M") . ,(kbd "М")) ;;; CYRILLIC CAPITAL LETTER EM
-    (,(kbd "C-x 8 r N") . ,(kbd "Н")) ;;; CYRILLIC CAPITAL LETTER EN
-    (,(kbd "C-x 8 r O") . ,(kbd "О")) ;;; CYRILLIC CAPITAL LETTER O
-    (,(kbd "C-x 8 r P") . ,(kbd "П")) ;;; CYRILLIC CAPITAL LETTER PE
-    (,(kbd "C-x 8 r R") . ,(kbd "Р")) ;;; CYRILLIC CAPITAL LETTER ER
-    (,(kbd "C-x 8 r S") . ,(kbd "С")) ;;; CYRILLIC CAPITAL LETTER ES
-    (,(kbd "C-x 8 r T") . ,(kbd "Т")) ;;; CYRILLIC CAPITAL LETTER TE
-    (,(kbd "C-x 8 r U") . ,(kbd "У")) ;;; CYRILLIC CAPITAL LETTER U
-    (,(kbd "C-x 8 r F") . ,(kbd "Ф")) ;;; CYRILLIC CAPITAL LETTER EF
-    (,(kbd "C-x 8 r H") . ,(kbd "Х")) ;;; CYRILLIC CAPITAL LETTER HA
-    (,(kbd "C-x 8 r X") . ,(kbd "Х")) ;;; CYRILLIC CAPITAL LETTER HA
-    (,(kbd "C-x 8 r C") . ,(kbd "Ц")) ;;; CYRILLIC CAPITAL LETTER TSE
-    (,(kbd "C-x 8 r / C") . ,(kbd "Ч")) ;;; CYRILLIC CAPITAL LETTER CHE
-    (,(kbd "C-x 8 r / T") . ,(kbd "Щ")) ;;; CYRILLIC CAPITAL LETTER SHCHA
-    (,(kbd "C-x 8 r C-~") . ,(kbd "Ъ")) ;;; CYRILLIC CAPITAL LETTER HARD SIGN
-    (,(kbd "C-x 8 r Y") . ,(kbd "Ы")) ;;; CYRILLIC CAPITAL LETTER YERU
-    (,(kbd "C-x 8 r C-'") . ,(kbd "Ь")) ;;; CYRILLIC CAPITAL LETTER SOFT SIGN
-    (,(kbd "C-x 8 r / F") . ,(kbd "Э")) ;;; CYRILLIC CAPITAL LETTER E
-    (,(kbd "C-x 8 r / U") . ,(kbd "Ю")) ;;; CYRILLIC CAPITAL LETTER YU
-    (,(kbd "C-x 8 r Q") . ,(kbd "Я")) ;;; CYRILLIC CAPITAL LETTER YA
+    (,(kbd "C-x 8 r A")   . "А") ;;; CYRILLIC CAPITAL LETTER A
+    (,(kbd "C-x 8 r B")   . "Б") ;;; CYRILLIC CAPITAL LETTER BE
+    (,(kbd "C-x 8 r V")   . "В") ;;; CYRILLIC CAPITAL LETTER VE
+    (,(kbd "C-x 8 r W")   . "В") ;;; CYRILLIC CAPITAL LETTER VE
+    (,(kbd "C-x 8 r G")   . "Г") ;;; CYRILLIC CAPITAL LETTER GHE
+    (,(kbd "C-x 8 r D")   . "Д") ;;; CYRILLIC CAPITAL LETTER DE
+    (,(kbd "C-x 8 r E")   . "Е") ;;; CYRILLIC CAPITAL LETTER IE
+    (,(kbd "C-x 8 r / Y") . "Ё") ;;; CYRILLIC CAPITAL LETTER IO
+    (,(kbd "C-x 8 r / X") . "Ж") ;;; CYRILLIC CAPITAL LETTER ZHE
+    (,(kbd "C-x 8 r Z")   . "З") ;;; CYRILLIC CAPITAL LETTER ZE
+    (,(kbd "C-x 8 r I")   . "И") ;;; CYRILLIC CAPITAL LETTER I
+    (,(kbd "C-x 8 r J")   . "Й") ;;; CYRILLIC CAPITAL LETTER SHORT I
+    (,(kbd "C-x 8 r K")   . "К") ;;; CYRILLIC CAPITAL LETTER KA
+    (,(kbd "C-x 8 r L")   . "Л") ;;; CYRILLIC CAPITAL LETTER EL
+    (,(kbd "C-x 8 r M")   . "М") ;;; CYRILLIC CAPITAL LETTER EM
+    (,(kbd "C-x 8 r N")   . "Н") ;;; CYRILLIC CAPITAL LETTER EN
+    (,(kbd "C-x 8 r O")   . "О") ;;; CYRILLIC CAPITAL LETTER O
+    (,(kbd "C-x 8 r P")   . "П") ;;; CYRILLIC CAPITAL LETTER PE
+    (,(kbd "C-x 8 r R")   . "Р") ;;; CYRILLIC CAPITAL LETTER ER
+    (,(kbd "C-x 8 r S")   . "С") ;;; CYRILLIC CAPITAL LETTER ES
+    (,(kbd "C-x 8 r T")   . "Т") ;;; CYRILLIC CAPITAL LETTER TE
+    (,(kbd "C-x 8 r U")   . "У") ;;; CYRILLIC CAPITAL LETTER U
+    (,(kbd "C-x 8 r F")   . "Ф") ;;; CYRILLIC CAPITAL LETTER EF
+    (,(kbd "C-x 8 r H")   . "Х") ;;; CYRILLIC CAPITAL LETTER HA
+    (,(kbd "C-x 8 r X")   . "Х") ;;; CYRILLIC CAPITAL LETTER HA
+    (,(kbd "C-x 8 r C")   . "Ц") ;;; CYRILLIC CAPITAL LETTER TSE
+    (,(kbd "C-x 8 r / C") . "Ч") ;;; CYRILLIC CAPITAL LETTER CHE
+    (,(kbd "C-x 8 r / T") . "Щ") ;;; CYRILLIC CAPITAL LETTER SHCHA
+    (,(kbd "C-x 8 r C-~") . "Ъ") ;;; CYRILLIC CAPITAL LETTER HARD SIGN
+    (,(kbd "C-x 8 r Y")   . "Ы") ;;; CYRILLIC CAPITAL LETTER YERU
+    (,(kbd "C-x 8 r C-'") . "Ь") ;;; CYRILLIC CAPITAL LETTER SOFT SIGN
+    (,(kbd "C-x 8 r / F") . "Э") ;;; CYRILLIC CAPITAL LETTER E
+    (,(kbd "C-x 8 r / U") . "Ю") ;;; CYRILLIC CAPITAL LETTER YU
+    (,(kbd "C-x 8 r Q")   . "Я") ;;; CYRILLIC CAPITAL LETTER YA
 
-    (,(kbd "C-x 8 r / A") . ,(kbd "Ї")) ;;; CYRILLIC CAPITAL LETTER YI
-    (,(kbd "C-x 8 r / D") . ,(kbd "Ђ")) ;;; CYRILLIC CAPITAL LETTER DJE
-    (,(kbd "C-x 8 r / E") . ,(kbd "Є")) ;;; CYRILLIC CAPITAL LETTER UKRAINIAN IE
-    (,(kbd "C-x 8 r / G") . ,(kbd "Ѓ")) ;;; CYRILLIC CAPITAL LETTER GJE
-    (,(kbd "C-x 8 r / H") . ,(kbd "Ш")) ;;; CYRILLIC CAPITAL LETTER SHA
-    (,(kbd "C-x 8 r / I") . ,(kbd "І")) ;;; CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I
-    (,(kbd "C-x 8 r / J") . ,(kbd "Ј")) ;;; CYRILLIC CAPITAL LETTER JE
-    (,(kbd "C-x 8 r / K") . ,(kbd "Ќ")) ;;; CYRILLIC CAPITAL LETTER KJE
-    (,(kbd "C-x 8 r / L") . ,(kbd "Љ")) ;;; CYRILLIC CAPITAL LETTER LJE
-    (,(kbd "C-x 8 r / N") . ,(kbd "Њ")) ;;; CYRILLIC CAPITAL LETTER NJE
-    (,(kbd "C-x 8 r / R") . ,(kbd "Ћ")) ;;; CYRILLIC CAPITAL LETTER TSHE
-    (,(kbd "C-x 8 r / S") . ,(kbd "Ѕ")) ;;; CYRILLIC CAPITAL LETTER DZE
-    (,(kbd "C-x 8 r / V") . ,(kbd "Ў")) ;;; CYRILLIC CAPITAL LETTER SHORT U
-    (,(kbd "C-x 8 r / Z") . ,(kbd "Џ")) ;;; CYRILLIC CAPITAL LETTER DZHE
+    (,(kbd "C-x 8 r / A") . "Ї") ;;; CYRILLIC CAPITAL LETTER YI
+    (,(kbd "C-x 8 r / D") . "Ђ") ;;; CYRILLIC CAPITAL LETTER DJE
+    (,(kbd "C-x 8 r / E") . "Є") ;;; CYRILLIC CAPITAL LETTER UKRAINIAN IE
+    (,(kbd "C-x 8 r / G") . "Ѓ") ;;; CYRILLIC CAPITAL LETTER GJE
+    (,(kbd "C-x 8 r / H") . "Ш") ;;; CYRILLIC CAPITAL LETTER SHA
+    (,(kbd "C-x 8 r / I") . "І") ;;; CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I
+    (,(kbd "C-x 8 r / J") . "Ј") ;;; CYRILLIC CAPITAL LETTER JE
+    (,(kbd "C-x 8 r / K") . "Ќ") ;;; CYRILLIC CAPITAL LETTER KJE
+    (,(kbd "C-x 8 r / L") . "Љ") ;;; CYRILLIC CAPITAL LETTER LJE
+    (,(kbd "C-x 8 r / N") . "Њ") ;;; CYRILLIC CAPITAL LETTER NJE
+    (,(kbd "C-x 8 r / R") . "Ћ") ;;; CYRILLIC CAPITAL LETTER TSHE
+    (,(kbd "C-x 8 r / S") . "Ѕ") ;;; CYRILLIC CAPITAL LETTER DZE
+    (,(kbd "C-x 8 r / V") . "Ў") ;;; CYRILLIC CAPITAL LETTER SHORT U
+    (,(kbd "C-x 8 r / Z") . "Џ") ;;; CYRILLIC CAPITAL LETTER DZHE
     )
    "A list of cons cells whose CAR is a key sequence and CDR a
    Unicode character. For each such cons cell, the key sequence
