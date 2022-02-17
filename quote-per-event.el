@@ -39,6 +39,10 @@
 ;;             (lambda ()
 ;;               (quote-per-event-local-mode -1)))
 ;;
+;;; Code:
+(eval-when-compile
+  (require 'cl-lib))
+
 (defgroup quote-per-event ()
   "Quotation on demand."
   :package-version '(quote-per-event . "1.0")
@@ -180,11 +184,9 @@ variable `quote-per-event-alist'.")
 delimited by BEGIN and END."
   (save-excursion
      (goto-char end)
-     (dotimes (i count)
-       (insert close))
+     (cl-loop repeat count do (insert close))
      (goto-char begin)
-     (dotimes (i count)
-       (insert open))))
+     (cl-loop repeat count do (insert open))))
 
 (defmacro unquote-intern (cond)
   `(progn
@@ -249,7 +251,7 @@ quotes to insert or delete around it, depending on whether NUM is
 positive or negative, respectively. If NUM is 0, then all quotes
 are deleted.
 
-If thing-at-point (TAP) is non-nil, then a non-zero |NUM|
+If `thing-at-point' (TAP) is non-nil, then a non-zero |NUM|
 indicates the range of sexps forward from the current one to
 quote or unquote, depending on whether NUM is positive or
 negative, (respectively.)
@@ -331,8 +333,7 @@ quotes around point are deleted."
          ((< count 0)
 
         ;;; Remove quotes from |count| things-at-point.
-          (let* ((count (- count))
-                 (i 0))
+          (let* ((i 0))
             (unquote-region (< i 1))))
 
        ;;; ((= count 0)
@@ -349,7 +350,7 @@ quotes around point are deleted."
        ((< 0 count)
 
         ;;; Insert |count| pairs of quotes around point.
-        (dotimes (i count)
+        (cl-loop repeat count do
           (insert open)
           (insert close)
           (backward-char 1)))
@@ -431,9 +432,5 @@ regions, things-at-point and points."
     )))
 
 (provide 'quote-per-event)
-
-;; Local Variables:
-;; byte-compile-dynamic: t
-;; End:
 
 ;;; quote-per-event.el ends here

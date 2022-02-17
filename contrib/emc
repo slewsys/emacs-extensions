@@ -1,8 +1,7 @@
-#! /opt/bin/ruby
-#
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # @(#) emc
-#
-# Last modified: 2014-08-14 <alm@slewsys.org>
 #
 # This script Emacs byte-compiles files given on command line or
 # via NUL-delimited names on standard input.
@@ -12,13 +11,14 @@ require 'optparse/time'
 require 'ostruct'
 require 'shellwords'
 
-script_name = $0.sub(/.*\//, '')
+script_name = $PROGRAM_NAME[%r{[^/]+$}]
 
+# Emacs compiler class
 class Emc
   attr_accessor :options
-  
-  EMACS = '/opt/bin/emacs'
-  LISP = '/Applications/Emacs.app/Contents/Resources/lisp'
+
+  EMACS = '/usr/local/bin/emacs'
+  LISP = '/usr/local/share/emacs/resources/lisp'
   EMACS_LISP = "#{LISP}/emacs-lisp"
   CEDET = "#{LISP}/cedet"
   SEMANTIC = "#{CEDET}/semantic"
@@ -26,8 +26,7 @@ class Emc
 
   VERSION = '1.3'
 
-
-  def initialize (script_name)
+  def initialize(script_name)
     @options = OpenStruct.new
     @script_name = script_name
     @options.load_path = [LISP, EMACS_LISP, CEDET, SEMANTIC, BOVINE]
@@ -36,51 +35,49 @@ class Emc
     @options.verbose = false
   end
 
-  def parse (argv)
+  def parse(argv)
     OptionParser.new do |opts|
       opts.banner = "Usage: #{@script_name} [OPTIONS] FILE [...]"
-      opts.separator "Available OPTIONS:"
+      opts.separator 'Available OPTIONS:'
 
       # Add to load path
-      opts.on("-e", "--eval ELisp-EXPR", "Eval ELisp-EXPR") do |expr|
+      opts.on('-e', '--eval ELisp-EXPR', 'Eval ELisp-EXPR') do |expr|
         @options.elisp_expr << expr
       end
 
       # Add to load path
-      opts.on("-l", "--load-path PATH", "Load PATH") do |path|
+      opts.on('-l', '--load-path PATH', 'Load PATH') do |path|
         @options.load_path << path
       end
 
       # Mandatory argument.
-      opts.on("-r", "--require-feature FEATURE", "Require FEATURE") do |feature|
+      opts.on('-r', '--require-feature FEATURE', 'Require FEATURE') do |feature|
         @options.require_feature << feature
       end
 
       # Boolean switch.
-      opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+      opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
         @options.verbose = v
       end
 
-
       # Another typical switch to print the version.
-      opts.on("-V", "--version", "Show version") do
-        puts @script_name.capitalize + " " + VERSION
+      opts.on('-V', '--version', 'Show version') do
+        puts "#{@script_name.capitalize} #{VERSION}"
         exit
       end
 
-      opts.on_tail("-h", "--help", "Show this message") do
+      opts.on_tail('-h', '--help', 'Show this message') do
         puts opts
         exit
       end
-
     end.parse!(argv)
   end
 end
 
-if __FILE__ == $0
+if $PROGRAM_NAME == __FILE__
   emc = Emc.new(script_name)
   if (argv_rem = emc.parse(ARGV)) == []
-    emc.parse(["--help"])
+    emc.parse(['--help'])
   end
 
   expr_args = ''
@@ -91,15 +88,15 @@ if __FILE__ == $0
   load_args = ''
   emc.options.load_path.each do |path|
     begin
-       filetype = File.ftype(path)
-    rescue 
-       filetype = File.ftype(path + '.el.gz')
+      filetype = File.ftype(path)
+    rescue
+      filetype = File.ftype("#{path}.el.gz")
     end
     case filetype
-    when "file"
-      load_args += " --load " + path.shellescape
-    when "directory"
-      load_args += " --directory " + path.shellescape
+    when 'file'
+      load_args += " --load #{path.shellescape}"
+    when 'directory'
+      load_args += " --directory #{path.shellescape}"
     else
       puts "#{script_name}: #{path}: Unable to load"
     end
@@ -110,7 +107,7 @@ if __FILE__ == $0
     require_args += " --eval '(require '\\''#{feature})'"
   end
 
-  emacs = Emc::EMACS + ' -Q --batch'
+  emacs = "#{Emc::EMACS}  -Q --batch"
   emacs += load_args + require_args + expr_args
   # puts "argv_rem: #{argv_rem}" if emc.options.verbose
   argv_rem.each do |arg|
@@ -122,13 +119,3 @@ if __FILE__ == $0
     system(compile_cmd)
   end
 end
-
-# 
-# Local variables:
-# mode: ruby
-# eval: (add-hook 'write-file-functions 'time-stamp)
-# time-stamp-start: "Last modified: "
-# time-stamp-format: "%:y-%02m-%02d <%u@%h>"
-# time-stamp-end: "$"
-# End:
-# 

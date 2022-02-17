@@ -34,6 +34,7 @@
 ;;             (lambda ()
 ;;               (mark-navigation-local-mode -1)))
 ;;
+;;; Code:
 (defgroup mark-navigation ()
   "Navigate mark ring."
   :package-version '(mark-navigation . "1.1")
@@ -62,7 +63,7 @@
   "The order in which marks in the global-mark-ring are visited,
    either `forward' or `backward', the default.")
 
-(defun init-mark-navigation-map (bindings-sym)
+(defun mark-navigation-init-keymap (bindings-sym)
   "Initialize keymap for `mark-navigation-mode'."
   (let ((map (make-sparse-keymap))
         (i 0))
@@ -162,7 +163,7 @@ traversing the local and global mark rings."
   :lighter nil
 
   ;;; Minor mode keymap
-  :keymap (init-mark-navigation-map 'mark-navigation-bindings)
+  :keymap (mark-navigation-init-keymap 'mark-navigation-bindings)
 
   ;;; Gobal variable `mark-navigation-mode'.
   :global t

@@ -33,8 +33,9 @@
 ;;
 ;;   (executable-set-magic-mode)
 ;;
+;;; Code:
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 
 (defcustom executable-set-magic-alist
   '((awk-mode        ("awk"    . "-f"))
@@ -46,7 +47,7 @@
     (lua-mode        ("lua"    . nil))
     (perl-mode       ("perl"   . nil))
     (php-mode        ("php"    . nil))
-    (python-mode     ("python" . nil))
+    (python-mode     ("python3" . nil))
     (ruby-mode       ("ruby"   . nil))
     (sed-mode        ("sed"    . "-f"))
     (shell-mode      ("bash"   . nil))
@@ -83,12 +84,12 @@ to identify root of project hierarchy."
   "Searches PROJECT-DIRECTORY for one of the files in list
 `executable-project-root-files'. If found, returns the pathname,
 otherwise nil."
-  (block project-block
+  (cl-block project-block
       (dolist (root-file executable-project-root-files)
         (setq executable-root-path
               (concat project-directory root-file))
         (if (file-exists-p executable-root-path)
-            (return-from project-block
+            (cl-return-from project-block
               (file-name-directory executable-root-path))))
       nil))
 
@@ -96,7 +97,7 @@ otherwise nil."
   "Searches hierarchy of PROJECT-DIRECTORY for top-most project
 root, as defined by function `executable-project-root-path'. If
 found, returns the pathname, other nil."
-  (block root-block
+  (cl-block root-block
     (let* ((canonical-dir
             (expand-file-name (file-name-directory (or project-directory
                                                        default-directory))))
@@ -108,7 +109,7 @@ found, returns the pathname, other nil."
         (setq executable-root-path
                 (executable-project-root-path top-level-path))
         (if executable-root-path
-            (return-from root-block executable-root-path))))))
+            (cl-return-from root-block executable-root-path))))))
 
 (defun executable-set-magic-hook ()
 "Calls `executable-set-magic' with arguments returned by look up

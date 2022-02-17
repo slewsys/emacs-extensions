@@ -185,8 +185,4 @@ magnitude, the separator should be as defined by
 
 (provide 'align-numbers)
 
-;; Local Variables:
-;; byte-compile-dynamic: t
-;; End:
-
 ;;; align-numbers.el ends here

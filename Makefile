@@ -1,11 +1,11 @@
 # Makefile: Emacs source compilation
 #
-EMACS = emacs
+EMC := /usr/local/bin/emc
 
 .SUFFIXES: .el .elc
 
 .el.elc:
-	$(EMACS) -batch -q -eval '(byte-compile-file "$<")'
+	$(EMC) $<
 
 SRCS = $(wildcard *.el)
 OBJS = $(SRCS:.el=.elc)
