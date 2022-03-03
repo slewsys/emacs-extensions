@@ -1,10 +1,8 @@
-;;; script-set-magic.el --- set script magic number   -*- lexical-binding: t -*-
+;;; executable-set-magic.el --- set script magic number -*- lexical-binding: t -*-
 ;;
-;; -*- coding: utf-8 -*-
-;;
-;; Copyright © 2017 Andrew L. Moore
+;; Copyright © 2017,2022 Andrew L. Moore
 
-;; Author: Andrew L. Moore <alm@gnu.org>
+;; Author: Andrew L. Moore <slewsys@gmail.com>
 ;; Keywords: editing, languages, script
 ;; URL: https://github.com/slewsys/emacs-extensions
 
@@ -38,20 +36,19 @@
   (require 'cl-lib))
 
 (defcustom executable-set-magic-alist
-  '((awk-mode        ("awk"    . "-f"))
-    (enh-ruby-mode   ("ruby"   . nil))
-    (go-mode         ("go"     . nil))
-    (javascript-mode ("node"   . nil))
-    (js2-mode        ("node"   . nil))
-    (julia-mode      ("julia"  . nil))
-    (lua-mode        ("lua"    . nil))
-    (perl-mode       ("perl"   . nil))
-    (php-mode        ("php"    . nil))
+  '((awk-mode        ("awk"     . "-f"))
+    (ed-mode         ("ed"      . "-f"))
+    (go-mode         ("go"      . nil))
+    (js-mode         ("node"    . nil))
+    (julia-mode      ("julia"   . nil))
+    (lua-mode        ("lua"     . nil))
+    (perl-mode       ("perl"    . nil))
+    (php-mode        ("php"     . nil))
     (python-mode     ("python3" . nil))
-    (ruby-mode       ("ruby"   . nil))
-    (sed-mode        ("sed"    . "-f"))
-    (shell-mode      ("bash"   . nil))
-    (tcl-mode        ("tclsh"    . nil)))
+    (ruby-mode       ("ruby"    . nil))
+    (sed-mode        ("sed"     . "-f"))
+    (shell-mode      ("bash"    . nil))
+    (tcl-mode        ("tclsh"   . nil)))
   "Alist of major modes and associated script interpreters used
 by `executable-set-magic' to produce a magic number for a script."
   :tag "Mode-interpreter alist."
